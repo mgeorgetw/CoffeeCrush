@@ -1,0 +1,59 @@
+[
+  {
+    "method": "Hario V60",
+    "grindSize": "Fine",
+    "defaultCoffeeInGram": 30,
+    "defaultWaterInMl": 500,
+    "waterTemperature": "100℃",
+    "ratio": 16.66,
+    "tools": [
+      "A Hario V60 coffee brewer.",
+      "An eletronic scale.",
+      "V60 filter paper.",
+      "A spoon."
+    ],
+    "steps": [
+      "Pour {bloomWater}ml of water and wait to bloom",
+      "Swirl the brewer until the grounds look well mixed.",
+      "Wait for 35 seconds.",
+      "Pour {secondPour}ml of water.",
+      "Wait for 5 seconds.",
+      "Pour {finalPour}ml of water.",
+      "Stir for 5 seconds.",
+      "Wait for 15 seconds."
+    ]
+  },
+  {
+    "method": "French Press",
+    "grindSize": "Medium",
+    "defaultCoffeeInGram": 30,
+    "defaultWaterInMl": 500,
+    "waterTemperature": "100℃",
+    "ratio": 16.66,
+    "tools": ["A french press brewer.", "An eletronic scale.", "Two spoons."],
+    "steps": [
+      "Pour {bloomWater}ml of water and wait to bloom",
+      "Swirl the brewer until the grounds look well mixed.",
+      "Wait for 35 seconds.",
+      "Pour {secondPour}ml of water.",
+      "Wait for 5 seconds.",
+      "Pour {finalPour}ml of water.",
+      "Stir for 5 seconds.",
+      "Wait for 15 seconds."
+    ]
+  },
+  {
+    "method": "Iced filter coffee",
+    "grindSize": "Medium",
+    "defaultCoffeeInGram": 35,
+    "defaultWaterInMl": 500,
+    "waterTemperature": "100℃",
+    "ratio": 14.2,
+    "tools": [
+      "A Hario V60 coffee brewer.",
+      "An eletronic scale.",
+      "Two spoons."
+    ],
+    "steps": [""]
+  }
+]
