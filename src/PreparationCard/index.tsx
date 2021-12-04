@@ -14,16 +14,16 @@ export const PreparationCard = ({
     <Card>
       <div id="ready_page">
         <h2 className={"heading"}>You will need...</h2>
-        <ul>
-          <li>
+        <ul className="item-lists">
+          <li className="list-item">
             {methodDetails.grindSize} ground coffee: {Math.round(coffeeNeeded)}{" "}
             g
           </li>
-          <li>
+          <li className="list-item">
             {methodDetails.waterTemperature} Water: {Math.round(waterNeeded)} ml
           </li>
           {methodDetails.tools.map((t, index) => (
-            <li key={index}>{t}</li>
+            <li key={index} className="list-item">{t}</li>
           ))}
         </ul>
       </div>

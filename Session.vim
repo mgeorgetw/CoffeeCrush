@@ -8,52 +8,34 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +20 ~/Git/coffee_guide/src/App.css
-badd +16 ~/Git/coffee_guide/tsconfig.json
-badd +3 ~/Git/coffee_guide/src/DoseCard/index.tsx
-badd +43 ~/Git/coffee_guide/src/App.tsx
-badd +22 BrewMethods.json
-badd +5 term://~/Git/coffee_guide/src//16333:/usr/local/bin/fish
-badd +26 ~/Git/coffee_guide/src/PreparationCard/index.tsx
-badd +9 TypeBrewMethod.tsx
-badd +1 ~/Git/coffee_guide/src/data
+badd +22 ~/Git/coffee_guide/src/App.css
+badd +1 ~/Git/coffee_guide/src/DoseCard/index.tsx
+badd +5 ~/Git/coffee_guide/src/App.tsx
+badd +1 BrewMethods.json
+badd +1 ~/Git/coffee_guide/src/PreparationCard/index.tsx
 badd +12 ~/Git/coffee_guide/src/utils/math.tsx
 badd +5 ~/Git/coffee_guide/src/utils/pourStepsGenerator.tsx
+badd +4 term://~/Git/coffee_guide/src//68977:/usr/local/bin/fish
+badd +1 ~/Git/coffee_guide/src/elements/Stopwatch/index.tsx
 argglobal
 %argdel
 edit ~/Git/coffee_guide/src/App.tsx
 argglobal
-balt ~/Git/coffee_guide/src/App.css
+balt ~/Git/coffee_guide/src/elements/Stopwatch/index.tsx
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=3
+setlocal fdl=7
 setlocal fml=1
 setlocal fdn=10
 setlocal fen
-27
-normal! zo
-38
-normal! zo
-46
-normal! zo
-49
-normal! zo
-52
-normal! zo
-86
-normal! zo
-108
-normal! zo
-112
-normal! zo
-let s:l = 84 - ((18 * winheight(0) + 23) / 46)
+let s:l = 13 - ((12 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 84
-normal! 045|
+keepjumps 13
+normal! 072|
 lcd ~/Git/coffee_guide/src
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

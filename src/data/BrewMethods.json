@@ -13,14 +13,15 @@
       "A spoon."
     ],
     "steps": [
-      "Pour {bloomWater}ml of water and wait to bloom",
-      "Swirl the brewer until the grounds look well mixed.",
-      "Wait for 35 seconds.",
-      "Pour {secondPour}ml of water.",
-      "Wait for 5 seconds.",
-      "Pour {finalPour}ml of water.",
-      "Stir for 5 seconds.",
-      "Wait for 15 seconds."
+      "00:00|Pour {0.12} ml of water and wait to bloom.",
+      "00:05|Swirl the brewer until the grounds look well mixed.",
+      "00:10|Wait 35 seconds.",
+      "00:45|Pour water until {0.6} ml.",
+      "01:15|Wait 5 seconds.",
+      "01:20|Keep pouring water until {1} ml.",
+      "01:50|Stir for 5 seconds.",
+      "01:55|Wait for the drawdown.",
+      "02:15|Enjoy your coffee!"
     ]
   },
   {
@@ -32,14 +33,11 @@
     "ratio": 16.66,
     "tools": ["A french press brewer.", "An eletronic scale.", "Two spoons."],
     "steps": [
-      "Pour {bloomWater}ml of water and wait to bloom",
-      "Swirl the brewer until the grounds look well mixed.",
-      "Wait for 35 seconds.",
-      "Pour {secondPour}ml of water.",
-      "Wait for 5 seconds.",
-      "Pour {finalPour}ml of water.",
-      "Stir for 5 seconds.",
-      "Wait for 15 seconds."
+      "00:00|Pour {1} ml of water.",
+      "00:10|Wait 4 minutes.",
+      "04:10|Use spoons to stir floating crusts and discard what remains floating.",
+      "04:30|Wait at least 5 minutes.",
+      "09:30|Enjoy your coffee!"
     ]
   },
   {
@@ -54,6 +52,6 @@
       "An eletronic scale.",
       "Two spoons."
     ],
-    "steps": [""]
+    "steps": ["00:00|Pour {1} ml of water."]
   }
 ]
