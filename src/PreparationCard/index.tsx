@@ -5,10 +5,12 @@ export const PreparationCard = ({
   methodDetails,
   coffeeNeeded,
   waterNeeded,
+  setIsReady,
 }: {
   methodDetails: TypeBrewMethod;
   coffeeNeeded: number;
   waterNeeded: number;
+  setIsReady: Function;
 }) => {
   return (
     <Card>
@@ -23,11 +25,13 @@ export const PreparationCard = ({
             {methodDetails.waterTemperature} Water: {Math.round(waterNeeded)} ml
           </li>
           {methodDetails.tools.map((t, index) => (
-            <li key={index} className="list-item">{t}</li>
+            <li key={index} className="list-item">
+              {t}
+            </li>
           ))}
         </ul>
       </div>
-      <button type="submit">I'm ready</button>
+      <button onClick={() => setIsReady(true)}>I'm ready</button>
     </Card>
   );
 };

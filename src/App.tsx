@@ -8,17 +8,20 @@ import { Card } from "./elements/Card";
 import brewMethods from "./data/BrewMethods.json";
 import "./App.css";
 
-// TODO: Hide instruction card before the user presses the ready button.
 // TODO: Sync instruction with stopwatch.
 // TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
 
 const InstructionCard = ({
   methodDetails,
   water,
+  isReady,
+  setIsReady,
 }: {
   methodDetails: TypeBrewMethod;
   beanWeight: number;
   water: number;
+  isReady: boolean;
+  setIsReady: Function;
 }) => {
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -46,7 +49,10 @@ const InstructionCard = ({
   }, [isRunning]);
 
   return (
-    <Card>
+    <Card className={`slider ${!isReady && "close"}`}>
+      <div className="topnav">
+        <button onClick={() => setIsReady(false)}>Close</button>
+      </div>
       <Stopwatch
         setTime={setTime}
         isRunning={isRunning}
@@ -72,11 +78,13 @@ const InstructionCard = ({
 
 function App() {
   const [method, setMethod] = useState("Hario V60");
+  const [isReady, setIsReady] = useState<boolean>(false);
   const chosenMethodDetails = brewMethods.find((obj) => obj.method === method);
   const [beanWeight, setBeanWeight] = useState(
     chosenMethodDetails!.defaultCoffeeInGram
   );
   const [water, setWater] = useState(chosenMethodDetails!.defaultWaterInMl);
+
   if (!brewMethods) return <p>Loading</p>;
   const grindSize = chosenMethodDetails?.grindSize;
 
@@ -106,11 +114,14 @@ function App() {
         methodDetails={chosenMethodDetails!}
         coffeeNeeded={beanWeight}
         waterNeeded={water}
+        setIsReady={setIsReady}
       />
       <InstructionCard
         methodDetails={chosenMethodDetails!}
         beanWeight={beanWeight}
         water={water}
+        isReady={isReady}
+        setIsReady={setIsReady}
       />
     </div>
   );

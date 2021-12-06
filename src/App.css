@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -17,10 +16,29 @@
   color: #61dafb;
 }
 
+.topnav {
+  display: flex;
+}
+
+.slider {
+  position: fixed;
+  top: 0vh;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.7s;
+}
+.slider > * {
+  background-color: darkslategray;
+}
+
+.slider.close {
+  top: 100%;
+  height: 0;
+}
+
 div.scroll {
-  background-color: #fed9ff;
+  background-color: pink;
   scroll-behavior: smooth;
-  height: 150px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
