@@ -8,18 +8,9 @@ import { Card } from "./elements/Card";
 import brewMethods from "./data/BrewMethods.json";
 import "./App.css";
 
+// TODO: Hide instruction card before the user presses the ready button.
 // TODO: Sync instruction with stopwatch.
 // TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
-// TODO: Hide instruction card before the user presses the ready button.
-
-// import { pourStepsGenerator } from "./utils/pourStepsGenerator";
-
-// const replaceJSONPlaceholders = (message: string, variables: string[]) => {
-//   for (let v in variables) {
-//     message = message.replace("{" + v + "}", variables[v]);
-//   }
-//   return message;
-// };
 
 const InstructionCard = ({
   methodDetails,
@@ -29,24 +20,52 @@ const InstructionCard = ({
   beanWeight: number;
   water: number;
 }) => {
+  const [time, setTime] = useState<number>(0);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const minutes = ("0" + Math.floor((time / 60000) % 60)).toString().slice(-2);
+  const seconds = ("0" + Math.floor((time / 1000) % 60)).toString().slice(-2);
+  const milliseconds = ("0" + ((time / 10) % 1000)).toString().slice(-2);
+
   const steps = methodDetails.steps.map((step) =>
     step.replace(/\{([^}]+)\}/, ($0: string, $1: string) =>
       Math.round(+$1 * water).toString()
     )
   );
   const timedSteps = steps.map((step) => step.split("|"));
+
+  useEffect(() => {
+    let interval: number = 0;
+    if (isRunning) {
+      interval = window.setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
   return (
     <Card>
-      <Stopwatch />
+      <Stopwatch
+        setTime={setTime}
+        isRunning={isRunning}
+        setIsRunning={setIsRunning}
+        minutes={minutes}
+        seconds={seconds}
+        milliseconds={milliseconds}
+      />
       <h2 className="heading">Steps</h2>
-      <ul className="item-lists">
-        {timedSteps.map((step, index) => (
-          <li className="list-item" key={index}>
-            <span className="digits timestamp">{step[0]}</span>
-            <span className="instruction">{step[1]}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="scroll">
+        <ul className="item-lists">
+          {timedSteps.map((step, index) => (
+            <li className="list-item" key={index}>
+              <span className="digits timestamp">{step[0]}</span>
+              <span className="instruction">{step[1]}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Card>
   );
 };

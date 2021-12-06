@@ -17,6 +17,16 @@
   color: #61dafb;
 }
 
+div.scroll {
+  background-color: #fed9ff;
+  scroll-behavior: smooth;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+
 .digits {
   font-family: monospace;
   color: darkgoldenrod;
@@ -28,7 +38,7 @@
 
 .item-lists {
   padding-left: 0;
-  font-size: 1.7em;
+  font-size: 1.3em;
 }
 
 .list-item {
