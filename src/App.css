@@ -5,6 +5,8 @@ body {
 .App {
   text-align: center;
   color: darkcyan;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .App-header {
@@ -19,10 +21,10 @@ body {
 
 .app-title {
   /* color: #3a3a3c; */
-  font-size: calc(12px + 2vmin);
+  font-size: calc(14px + 2vmin);
   color: darkgoldenrod;
   font-variant: small-caps;
-  letter-spacing: 1px;
+  letter-spacing: 2.6px;
 }
 
 .App-link {
@@ -30,10 +32,10 @@ body {
 }
 
 .heading {
-  font-size: calc(12px + 2vmin);
+  font-size: calc(9px + 2vmin);
   margin-top: 0.2em;
   text-align: left;
-  color: goldenrod;
+  color: darkgoldenrod;
   font-variant: small-caps;
   letter-spacing: 1px;
   font-weight: 600;
@@ -45,7 +47,7 @@ body {
 }
 
 .nav_heading {
-  color: antiquewhite;
+  color: palegoldenrod;
   display: inline-block;
 }
 
@@ -54,6 +56,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: space-between;
+  align-items: flex-start;
 }
 
 .input-container {
@@ -83,7 +87,6 @@ body {
   height: 5em;
   border: 5px solid #1c1c1e;
   border-radius: 60px;
-  transition: transform 300ms ease;
   background-color: #3a3a3c;
   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
 }
@@ -125,7 +128,7 @@ body {
   letter-spacing: 1px;
   font-size: 1em;
   font-weight: bold;
-  color: goldenrod;
+  color: darkgoldenrod;
   cursor: pointer;
   padding: 1rem;
   margin: 0.5rem;
@@ -135,6 +138,7 @@ body {
 }
 
 .prime_button:hover {
+  color: goldenrod;
   border: 5px solid goldenrod;
   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
 }
@@ -154,10 +158,9 @@ body {
   width: 5em;
   height: 5em;
   border-radius: 60px;
-  transition: transform 300ms ease;
   background-color: #3a3a3c;
   color: goldenrod;
-  box-shadow: inset 1px 3px 3px -4px black, inset 2px -2px 3px -4px black;
+  box-shadow: inset 1px 3px 3px -4px black, inset -1px -1.5px 3px -4px black;
 }
 
 .info-btn-label {
@@ -168,6 +171,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: darkgoldenrod;
+  width: 7em;
 }
 
 /* Styling number input */
@@ -210,8 +214,9 @@ input[type="number"]::-webkit-outer-spin-button {
   position: fixed;
   top: 0vh;
   height: 100vh;
+  max-width: inherit;
   overflow: hidden;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 .slider > * {
@@ -242,21 +247,20 @@ div.scroll {
 }
 
 .digits {
-  font-variant: small-caps;
-  font-size: 1em;
-  font-family: monospace;
-  font-weight: bold;
-  color: goldenrod;
   display: block;
+  font-family: monospace;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: darkgoldenrod;
 }
 
 .instruction {
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: darkcyan;
 }
 
 .active-text {
-  color: lightgoldenrodyellow;
+  color: palegoldenrod;
 }
 
 .item-lists {
@@ -302,8 +306,8 @@ div.scroll {
   padding: 1rem;
   margin: 0.5rem;
   width: 100%; /* For responsive svg */
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.12), 4px 4px 5px rgba(0, 0, 0, 0.24);
 }
 
 .flex-card-content {

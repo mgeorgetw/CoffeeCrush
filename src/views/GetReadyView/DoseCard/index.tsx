@@ -1,6 +1,6 @@
 import React from "react";
-import { Card } from "../elements/Card";
-import { beanWaterCalculator } from "../utils/math";
+import { Card } from "../../../elements/Card";
+import { beanWaterCalculator } from "../../../utils/math";
 
 export const DoseCard = ({
   ratio,

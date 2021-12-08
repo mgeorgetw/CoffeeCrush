@@ -1,6 +1,5 @@
-import { Card } from "../elements/Card";
-import { TypeBrewMethod } from "../data/TypeBrewMethod";
-import styles from "./PreparationCard.module.css";
+import { Card } from "../../../elements/Card";
+import { TypeBrewMethod } from "../../../types/TypeBrewMethod";
 
 export const PreparationCard = ({
   methodDetails,

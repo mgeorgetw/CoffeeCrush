@@ -1,7 +1,7 @@
 [
   {
-    "method": "Hario V60",
-    "grindSize": "Fine",
+    "method": "The Ultimate V60",
+    "grindSize": "Medium",
     "defaultCoffeeInGram": 30,
     "defaultWaterInMl": 500,
     "waterTemperature": "100℃",
@@ -15,15 +15,15 @@
     "steps": [
       {
         "order": 1,
-        "duration": 5,
+        "duration": 10,
         "instruction": "Pour {0.12} ml of water and wait to bloom."
       },
       {
         "order": 2,
-        "duration": 5,
+        "duration": 10,
         "instruction": "Swirl the brewer until the grounds look well mixed."
       },
-      { "order": 3, "duration": 35, "instruction": "Wait 35 seconds." },
+      { "order": 3, "duration": 30, "instruction": "Wait 30 seconds." },
       {
         "order": 4,
         "duration": 30,
