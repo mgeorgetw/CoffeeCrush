@@ -37,32 +37,44 @@ export const DoseCard = ({
   };
   return (
     <Card>
-      <div id="dose_options">
-        <h2 className="heading">Change dose when needed</h2>
-        <div className="button_with_info">Grind Size: {grindSize}</div>
-        <div className="button_with_info">
-          <label>Ground Coffee: </label>
-          <input
-            className="number_input"
-            type="number"
-            name="ground_coffee"
-            id="ground_coffee"
-            value={Math.round(beanWeight)}
-            onChange={handleWeightChange}
-          />{" "}
-          g
-        </div>
-        <div className="button_with_info">
-          <label>Water: </label>
-          <input
-            className="number_input"
-            type="number"
-            name="water"
-            id="water"
-            value={Math.round(water)}
-            onChange={handleWaterChange}
-          />{" "}
-          ml
+      <div id="dose-section">
+        <h2 className="heading">Decide on dose</h2>
+        <div className="radio-btn-group">
+          <div className="info-btn-group">
+            <div className="btn-with-info">
+              <div className="btn-with-info">{grindSize}</div>
+            </div>
+            <label className="info-btn-label">Grind Size</label>
+          </div>
+
+          <div className="info-btn-group">
+            <div className="btn-with-info">
+              <input
+                className="number_input"
+                type="number"
+                name="ground_coffee"
+                id="ground_coffee"
+                value={Math.round(beanWeight)}
+                onChange={handleWeightChange}
+              />{" "}
+              g
+            </div>
+            <label className="info-btn-label">Ground Coffee</label>
+          </div>
+          <div className="info-btn-group">
+            <div className="btn-with-info">
+              <input
+                className="number_input"
+                type="number"
+                name="water"
+                id="water"
+                value={Math.round(water)}
+                onChange={handleWaterChange}
+              />{" "}
+              ml
+            </div>
+            <label className="info-btn-label">Water</label>
+          </div>
         </div>
       </div>
     </Card>

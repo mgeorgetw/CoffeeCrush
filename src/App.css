@@ -1,23 +1,209 @@
+body {
+  background-color: #3a3a3c;
+}
+
 .App {
   text-align: center;
+  color: darkcyan;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+  margin: 10px 0;
+  /* background-color: darkgoldenrod; */
+  background-color: inherit;
+  height: 5vh;
+}
+
+.app-title {
+  /* color: #3a3a3c; */
+  font-size: calc(12px + 2vmin);
+  color: darkgoldenrod;
+  font-variant: small-caps;
+  letter-spacing: 1px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.topnav {
+.heading {
+  font-size: calc(12px + 2vmin);
+  margin-top: 0.2em;
+  text-align: left;
+  color: goldenrod;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.low_key_heading {
+  color: darkcyan;
+  font-variant: small-caps;
+}
+
+.nav_heading {
+  color: antiquewhite;
+  display: inline-block;
+}
+
+/* Radio button tile */
+.radio-btn-group {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+  margin: 0.5rem;
+}
+
+.radio-btn {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+  border: 5px solid #1c1c1e;
+  border-radius: 60px;
+  transition: transform 300ms ease;
+  background-color: #3a3a3c;
+  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
+}
+
+/* .icon svg { */
+/*   fill: darkcyan; */
+/*   width: 3rem; */
+/*   height: 3rem; */
+/* } */
+
+.radio-btn-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: darkgoldenrod;
+}
+
+.radio-btn:checked + .radio-tile {
+  border: 5px solid goldenrod;
+  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
+}
+
+.nav-btn {
+  position: relative;
+  border: none;
+  background-color: inherit;
+  color: darkgoldenrod;
+  font-size: 16px;
+  font-weight: medium;
+  cursor: pointer;
+  float: left;
+}
+
+.prime_button {
+  background-color: #3a3a3c;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  font-size: 1em;
+  font-weight: bold;
+  color: goldenrod;
+  cursor: pointer;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 5px solid #1c1c1e;
+  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
+  border-radius: 10px;
+}
+
+.prime_button:hover {
+  border: 5px solid goldenrod;
+  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
+}
+
+.info-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-with-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+  border-radius: 60px;
+  transition: transform 300ms ease;
+  background-color: #3a3a3c;
+  color: goldenrod;
+  box-shadow: inset 1px 3px 3px -4px black, inset 2px -2px 3px -4px black;
+}
+
+.info-btn-label {
+  margin: 1em;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: darkgoldenrod;
+}
+
+/* Styling number input */
+.number_input {
+  text-align: center;
+  width: 2.5em;
+  border: none;
+  border-bottom: 1px solid goldenrod;
+  background-color: inherit;
+  color: goldenrod;
+  user-select: all;
+  -moz-user-select: -moz-all;
+  -webkit-user-select: all;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.absolute_center {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 .slider {
@@ -25,8 +211,9 @@
   top: 0vh;
   height: 100vh;
   overflow: hidden;
-  transition: all 0.7s;
+  transition: all 1s;
 }
+
 .slider > * {
   background-color: darkslategray;
 }
@@ -36,27 +223,44 @@
   height: 0;
 }
 
+#stopwatch {
+  height: 50vh;
+}
+
+#stopwatch > .digits {
+  font-size: 4em;
+  font-weight: 200;
+}
+
 div.scroll {
-  background-color: pink;
+  height: 30vh;
+  background-color: darkslategray;
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
-  padding: 20px;
 }
 
 .digits {
+  font-variant: small-caps;
+  font-size: 1em;
   font-family: monospace;
-  color: darkgoldenrod;
+  font-weight: bold;
+  color: goldenrod;
+  display: block;
 }
 
-.timestamp {
-  display: block;
+.instruction {
+  font-size: 1.3em;
+  color: darkcyan;
+}
+
+.active-text {
+  color: lightgoldenrodyellow;
 }
 
 .item-lists {
   padding-left: 0;
-  font-size: 1.3em;
 }
 
 .list-item {
@@ -66,10 +270,6 @@ div.scroll {
 
 .list-item:first-child {
   margin-top: 0;
-}
-
-.number_input {
-  width: 4em;
 }
 
 .flex-card-list {
@@ -96,6 +296,7 @@ div.scroll {
 
 /* Code to adjust the layout to 3 cards per row */
 .flex-card {
+  background-color: darkslategray;
   display: flex;
   flex-direction: column;
   padding: 1rem;

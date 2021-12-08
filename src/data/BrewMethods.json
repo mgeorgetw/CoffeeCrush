@@ -13,15 +13,31 @@
       "A spoon."
     ],
     "steps": [
-      "00:00|Pour {0.12} ml of water and wait to bloom.",
-      "00:05|Swirl the brewer until the grounds look well mixed.",
-      "00:10|Wait 35 seconds.",
-      "00:45|Pour water until {0.6} ml.",
-      "01:15|Wait 5 seconds.",
-      "01:20|Keep pouring water until {1} ml.",
-      "01:50|Stir for 5 seconds.",
-      "01:55|Wait for the drawdown.",
-      "02:15|Enjoy your coffee!"
+      {
+        "order": 1,
+        "duration": 5,
+        "instruction": "Pour {0.12} ml of water and wait to bloom."
+      },
+      {
+        "order": 2,
+        "duration": 5,
+        "instruction": "Swirl the brewer until the grounds look well mixed."
+      },
+      { "order": 3, "duration": 35, "instruction": "Wait 35 seconds." },
+      {
+        "order": 4,
+        "duration": 30,
+        "instruction": "Pour water until {0.6} ml."
+      },
+      { "order": 5, "duration": 5, "instruction": "Wait 5 seconds." },
+      {
+        "order": 6,
+        "duration": 30,
+        "instruction": "Keep pouring water until {1} ml."
+      },
+      { "order": 7, "duration": 5, "instruction": "Stir for 5 seconds." },
+      { "order": 8, "duration": 20, "instruction": "Wait for the drawdown." },
+      { "order": 9, "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   },
   {
@@ -33,25 +49,23 @@
     "ratio": 16.66,
     "tools": ["A french press brewer.", "An eletronic scale.", "Two spoons."],
     "steps": [
-      "00:00|Pour {1} ml of water.",
-      "00:10|Wait 4 minutes.",
-      "04:10|Use spoons to stir floating crusts and discard what remains floating.",
-      "04:30|Wait at least 5 minutes.",
-      "09:30|Enjoy your coffee!"
+      {
+        "order": 1,
+        "duration": 10,
+        "instruction": "Pour {1} ml of water."
+      },
+      { "order": 2, "duration": 240, "instruction": "Wait 4 minutes." },
+      {
+        "order": 3,
+        "duration": 15,
+        "instruction": "Use spoons to stir floating crusts and discard what remains floating."
+      },
+      {
+        "order": 4,
+        "duration": 300,
+        "instruction": "Wait at least 5 minutes."
+      },
+      { "order": 6, "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
-  },
-  {
-    "method": "Iced filter coffee",
-    "grindSize": "Medium",
-    "defaultCoffeeInGram": 35,
-    "defaultWaterInMl": 500,
-    "waterTemperature": "100℃",
-    "ratio": 14.2,
-    "tools": [
-      "A Hario V60 coffee brewer.",
-      "An eletronic scale.",
-      "Two spoons."
-    ],
-    "steps": ["00:00|Pour {1} ml of water."]
   }
 ]

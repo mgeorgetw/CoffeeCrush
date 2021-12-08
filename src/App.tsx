@@ -8,8 +8,62 @@ import { Card } from "./elements/Card";
 import brewMethods from "./data/BrewMethods.json";
 import "./App.css";
 
-// TODO: Sync instruction with stopwatch.
 // TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
+
+const StepsList = ({
+  calculatedSteps,
+  currentStep,
+  isRunning,
+}: {
+  calculatedSteps: Array<{
+    order: number;
+    duration: number;
+    instruction: string;
+  }>;
+  isRunning: boolean;
+  currentStep: number;
+}) => {
+  return (
+    <>
+      <h4 className="low_key_heading">Steps</h4>
+      <div className="scroll">
+        <ul className="item-lists">
+          {!isRunning ? (
+            calculatedSteps.map((step, index) => (
+              <li className="list-item" key={index}>
+                <span className="digits">
+                  {step.duration} second{step.duration > 1 ? "s" : ""}
+                </span>
+                <span
+                  className={`instruction ${
+                    step.order === currentStep && "active-text"
+                  }`}
+                >
+                  {step.instruction}
+                </span>
+              </li>
+            ))
+          ) : (
+            <>
+              <li className="list-item">
+                <span className="digits">Do</span>
+                <span className="instruction active-text">
+                  {calculatedSteps[currentStep - 1].instruction}
+                </span>
+              </li>
+              <li className="list-item">
+                <span className="digits">Next Up</span>
+                <span className="instruction">
+                  {calculatedSteps[currentStep].instruction}
+                </span>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    </>
+  );
+};
 
 const InstructionCard = ({
   methodDetails,
@@ -24,54 +78,66 @@ const InstructionCard = ({
   setIsReady: Function;
 }) => {
   const [time, setTime] = useState<number>(0);
-  const [isRunning, setIsRunning] = useState<boolean>(false);
-  const minutes = ("0" + Math.floor((time / 60000) % 60)).toString().slice(-2);
-  const seconds = ("0" + Math.floor((time / 1000) % 60)).toString().slice(-2);
-  const milliseconds = ("0" + ((time / 10) % 1000)).toString().slice(-2);
-
-  const steps = methodDetails.steps.map((step) =>
-    step.replace(/\{([^}]+)\}/, ($0: string, $1: string) =>
-      Math.round(+$1 * water).toString()
-    )
+  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [untilNextStep, setUntilNextStep] = useState<number>(
+    methodDetails.steps[0].duration
   );
-  const timedSteps = steps.map((step) => step.split("|"));
-
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const calculatedSteps = methodDetails.steps.map((step) => {
+    return {
+      ...step,
+      instruction: step.instruction.replace(
+        /\{([^]+)\}/,
+        ($0: string, $1: string) => Math.round(+$1 * water).toString()
+      ),
+    };
+  });
+  const stepsLeft = calculatedSteps.length - currentStep;
   useEffect(() => {
     let interval: number = 0;
-    if (isRunning) {
+    if (isRunning && stepsLeft !== 0) {
       interval = window.setInterval(() => {
-        setTime((prevTime) => prevTime + 10);
-      }, 10);
+        setTime((prevTime) => prevTime + 1);
+        setUntilNextStep(untilNextStep - 1);
+        if (untilNextStep === 1) {
+          setCurrentStep((prevOrder) => prevOrder + 1);
+          setUntilNextStep(methodDetails.steps[currentStep].duration);
+        }
+      }, 1000);
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isRunning]);
-
+  }, [isRunning, untilNextStep, currentStep, methodDetails.steps, stepsLeft]);
   return (
     <Card className={`slider ${!isReady && "close"}`}>
       <div className="topnav">
-        <button onClick={() => setIsReady(false)}>Close</button>
+        <h3 className="nav_heading absolute_center">{methodDetails.method}</h3>
+        <button
+          className="nav-btn"
+          onClick={() => {
+            setIsReady(false);
+            setIsRunning(false);
+            setTime(0);
+            setCurrentStep(1);
+            setUntilNextStep(methodDetails.steps[0].duration);
+          }}
+        >
+          Close
+        </button>
       </div>
       <Stopwatch
+        time={time}
         setTime={setTime}
         isRunning={isRunning}
         setIsRunning={setIsRunning}
-        minutes={minutes}
-        seconds={seconds}
-        milliseconds={milliseconds}
+        setCurrentStep={setCurrentStep}
       />
-      <h2 className="heading">Steps</h2>
-      <div className="scroll">
-        <ul className="item-lists">
-          {timedSteps.map((step, index) => (
-            <li className="list-item" key={index}>
-              <span className="digits timestamp">{step[0]}</span>
-              <span className="instruction">{step[1]}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <StepsList
+        isRunning={isRunning}
+        calculatedSteps={calculatedSteps}
+        currentStep={currentStep}
+      />
     </Card>
   );
 };
@@ -84,19 +150,19 @@ function App() {
     chosenMethodDetails!.defaultCoffeeInGram
   );
   const [water, setWater] = useState(chosenMethodDetails!.defaultWaterInMl);
-
-  if (!brewMethods) return <p>Loading</p>;
   const grindSize = chosenMethodDetails?.grindSize;
 
   return (
     <div className="App">
-      <header className="App-header">Coffee Guide</header>
+      <header className="App-header">
+        <h1 className="app-title">Coffee Guide</h1>
+      </header>
 
       <Card>
-        <div id={"brewing_method_options"}>
-          <h2 className={"heading"}>Choose a brew method</h2>
+        <h2 className="heading">Choose a brew method</h2>
+        <div className="radio-btn-group">
           {brewMethods.map((item, index) => (
-            <div className="rounded_button" key={index}>
+            <div className="input-container" key={index}>
               {RadioButton(item.method, item.method, method, setMethod)}
             </div>
           ))}
@@ -114,7 +180,6 @@ function App() {
         methodDetails={chosenMethodDetails!}
         coffeeNeeded={beanWeight}
         waterNeeded={water}
-        setIsReady={setIsReady}
       />
       <InstructionCard
         methodDetails={chosenMethodDetails!}
@@ -123,6 +188,9 @@ function App() {
         isReady={isReady}
         setIsReady={setIsReady}
       />
+      <button className="prime_button" onClick={() => setIsReady(true)}>
+        I'm ready
+      </button>
     </div>
   );
 }

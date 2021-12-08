@@ -6,5 +6,9 @@ export interface TypeBrewMethod {
   waterTemperature: string;
   ratio: number;
   tools: string[];
-  steps: string[];
+  steps: Array<{
+    order: number;
+    duration: number;
+    instruction: string;
+  }>;
 }

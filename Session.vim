@@ -8,30 +8,32 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +33 src/App.css
-badd +19 src/DoseCard/index.tsx
-badd +5 src/App.tsx
-badd +1 src/data/BrewMethods.json
-badd +1 src/PreparationCard/index.tsx
+badd +106 src/App.css
+badd +65 src/DoseCard/index.tsx
+badd +129 src/App.tsx
+badd +20 src/PreparationCard/index.tsx
 badd +12 src/utils/math.tsx
-badd +1 term://~/Git/coffee_guide//7586:yarn\ start
-badd +0 src/App.css
+badd +1 term://~/Git/coffee_guide//70526:yarn\ start
 badd +11 src/elements/Card.tsx
-badd +0 man://display(1)
-badd +24 src/elements/Stopwatch/index.tsx
+badd +1 man://display(1)
+badd +28 src/elements/Stopwatch/index.tsx
+badd +52 src/data/BrewMethods.json
+badd +8 src/data/TypeBrewMethod.tsx
+badd +196 ~/dotfiles/vim/vimrc
+badd +16 src/elements/RadioButton.tsx
+badd +1 src/data
+badd +33 src/data/BrewMethods_copy.json
+badd +1 src/PreparationCard/PreparationCard.module.css
+badd +19 src/elements/Stopwatch/Stopwatch.module.css
 argglobal
 %argdel
-edit src/App.tsx
+edit src/elements/Stopwatch/index.tsx
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -43,66 +45,41 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe 'vert 1resize ' . ((&columns * 81 + 82) / 164)
-exe '2resize ' . ((&lines * 25 + 20) / 41)
 exe 'vert 2resize ' . ((&columns * 82 + 82) / 164)
-exe '3resize ' . ((&lines * 12 + 20) / 41)
-exe 'vert 3resize ' . ((&columns * 82 + 82) / 164)
 argglobal
-balt src/elements/Stopwatch/index.tsx
+balt src/elements/Stopwatch/Stopwatch.module.css
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=3
+setlocal fdl=7
 setlocal fml=1
 setlocal fdn=10
 setlocal fen
-80
+16
 normal! zo
-92
+19
 normal! zo
-93
+20
 normal! zo
-96
+28
 normal! zo
-97
+28
 normal! zo
-let s:l = 7 - ((6 * winheight(0) + 19) / 38)
+28
+normal! zo
+let s:l = 28 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 011|
-lcd ~/Git/coffee_guide/src
+keepjumps 28
+normal! 051|
+lcd ~/Git/coffee_guide/src/elements/Stopwatch
 wincmd w
 argglobal
-if bufexists("~/Git/coffee_guide/src/App.css") | buffer ~/Git/coffee_guide/src/App.css | else | edit ~/Git/coffee_guide/src/App.css | endif
+if bufexists("~/Git/coffee_guide/src/elements/Stopwatch/Stopwatch.module.css") | buffer ~/Git/coffee_guide/src/elements/Stopwatch/Stopwatch.module.css | else | edit ~/Git/coffee_guide/src/elements/Stopwatch/Stopwatch.module.css | endif
 if &buftype ==# 'terminal'
-  silent file ~/Git/coffee_guide/src/App.css
-endif
-balt ~/Git/coffee_guide/src/App.tsx
-setlocal fdm=indent
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=3
-setlocal fml=1
-setlocal fdn=10
-setlocal fen
-89
-normal! zo
-let s:l = 33 - ((2 * winheight(0) + 12) / 25)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 33
-normal! 0
-lcd ~/Git/coffee_guide/src
-wincmd w
-argglobal
-if bufexists("term://~/Git/coffee_guide//7586:yarn\ start") | buffer term://~/Git/coffee_guide//7586:yarn\ start | else | edit term://~/Git/coffee_guide//7586:yarn\ start | endif
-if &buftype ==# 'terminal'
-  silent file term://~/Git/coffee_guide//7586:yarn\ start
+  silent file ~/Git/coffee_guide/src/elements/Stopwatch/Stopwatch.module.css
 endif
 balt ~/Git/coffee_guide/src/App.css
 setlocal fdm=indent
@@ -113,20 +90,16 @@ setlocal fdl=3
 setlocal fml=1
 setlocal fdn=10
 setlocal fen
-let s:l = 634 - ((11 * winheight(0) + 6) / 12)
+let s:l = 18 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 634
+keepjumps 18
 normal! 0
-lcd ~/Git/coffee_guide/src
+lcd ~/Git/coffee_guide/src/elements/Stopwatch
 wincmd w
-3wincmd w
 exe 'vert 1resize ' . ((&columns * 81 + 82) / 164)
-exe '2resize ' . ((&lines * 25 + 20) / 41)
 exe 'vert 2resize ' . ((&columns * 82 + 82) / 164)
-exe '3resize ' . ((&lines * 12 + 20) / 41)
-exe 'vert 3resize ' . ((&columns * 82 + 82) / 164)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -141,7 +114,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
