@@ -43,12 +43,14 @@ export const StepsList = ({
                   {calculatedSteps[currentStep - 1].instruction}
                 </span>
               </li>
-              <li className="list-item">
-                <span className="digits">Next Up</span>
-                <span className="instruction">
-                  {calculatedSteps[currentStep].instruction}
-                </span>
-              </li>
+              {calculatedSteps[currentStep] && (
+                <li className="list-item">
+                  <span className="digits">Next Up</span>
+                  <span className="instruction">
+                    {calculatedSteps[currentStep].instruction}
+                  </span>
+                </li>
+              )}
             </>
           )}
         </ul>

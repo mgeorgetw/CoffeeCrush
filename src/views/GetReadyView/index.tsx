@@ -34,12 +34,10 @@ export const GetReadyView = ({
     <>
       <Card>
         <h2 className="heading">Choose a brew method</h2>
-        <div className="radio-btn-group">
-          {brewMethods.map((item, index) => (
-            <div className="input-container" key={index}>
-              {RadioButton(item.method, item.method, method, setMethod)}
-            </div>
-          ))}
+        <div className="centerSpacedFlexContainer">
+          {brewMethods.map((item, index) =>
+            RadioButton(index, item.method, item.method, method, setMethod)
+          )}
         </div>
       </Card>
       <DoseCard

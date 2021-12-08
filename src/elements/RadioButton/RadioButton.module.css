@@ -1,0 +1,43 @@
+.btnContainer {
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+  margin: 1rem;
+}
+
+.hiddenInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.roundToggleButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+  border: 5px solid #1c1c1e;
+  border-radius: 60px;
+  background-color: #3a3a3c;
+  box-shadow: inset 6px 7px 3px -3px #48484a, inset -4px -3px 3px -3px #48484a;
+}
+
+.btnLabel {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07rem;
+  color: darkgoldenrod;
+}
+
+.hiddenInput:checked + .roundToggleButton {
+  border: 5px solid goldenrod;
+}

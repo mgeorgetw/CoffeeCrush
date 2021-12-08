@@ -12,7 +12,7 @@
   height: 5em;
   border: 5px solid #1c1c1e;
   transition: transform 300ms ease;
-  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
+  box-shadow: inset 6px 7px 3px -3px #48484a, inset -4px -3px 3px -3px #48484a;
   border-radius: 50px;
 }
 
@@ -20,5 +20,4 @@
 .active {
   color: goldenrod;
   border: 5px solid goldenrod;
-  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
 }

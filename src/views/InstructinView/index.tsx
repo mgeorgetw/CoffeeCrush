@@ -34,24 +34,25 @@ export const InstructionView = ({
     };
   });
   const stepsLeft = calculatedSteps.length - currentStep;
+  console.log(stepsLeft);
   useEffect(() => {
     let interval: number = 0;
-    if (isRunning && stepsLeft !== 0) {
+    if (isRunning) {
       interval = window.setInterval(() => {
         setTime((prevTime) => prevTime + 1);
         setUntilNextStep(untilNextStep - 1);
-        if (untilNextStep === 1) {
+        if (stepsLeft > 0 && untilNextStep === 1) {
           setCurrentStep((prevOrder) => prevOrder + 1);
-          setUntilNextStep(methodDetails.steps[currentStep].duration);
+          setUntilNextStep(calculatedSteps[currentStep].duration);
         }
       }, 1000);
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isRunning, untilNextStep, currentStep, methodDetails.steps, stepsLeft]);
+  }, [isRunning, untilNextStep, currentStep, calculatedSteps, stepsLeft]);
   return (
-    <Card className={`slider ${!isReady && "close"}`}>
+    <div className={`slider ${!isReady && "close"}`}>
       <div className="topnav">
         <h3 className="nav_heading absolute_center">{methodDetails.method}</h3>
         <button
@@ -78,6 +79,6 @@ export const InstructionView = ({
         currentStep={currentStep}
         untilNextStep={untilNextStep}
       />
-    </Card>
+    </div>
   );
 };

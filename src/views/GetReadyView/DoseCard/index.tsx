@@ -39,7 +39,7 @@ export const DoseCard = ({
     <Card>
       <div id="dose-section">
         <h2 className="heading">Decide on dose</h2>
-        <div className="radio-btn-group">
+        <div className="centerSpacedFlexContainer">
           <div className="info-btn-group">
             <div className="btn-with-info">
               <div className="btn-with-info">{grindSize}</div>
