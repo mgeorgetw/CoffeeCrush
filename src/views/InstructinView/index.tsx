@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { TypeBrewMethod } from "../../types/TypeBrewMethod";
-import { Card } from "../../elements/Card";
+import { DonutProgressChart } from "./DonutProgressChart";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
 
@@ -34,13 +34,12 @@ export const InstructionView = ({
     };
   });
   const stepsLeft = calculatedSteps.length - currentStep;
-  console.log(stepsLeft);
   useEffect(() => {
     let interval: number = 0;
     if (isRunning) {
       interval = window.setInterval(() => {
         setTime((prevTime) => prevTime + 1);
-        setUntilNextStep(untilNextStep - 1);
+        if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
         if (stepsLeft > 0 && untilNextStep === 1) {
           setCurrentStep((prevOrder) => prevOrder + 1);
           setUntilNextStep(calculatedSteps[currentStep].duration);
@@ -73,11 +72,17 @@ export const InstructionView = ({
         isRunning={isRunning}
         setIsRunning={setIsRunning}
       />
-      <StepsList
-        isRunning={isRunning}
-        calculatedSteps={calculatedSteps}
+      <DonutProgressChart
+        steps={calculatedSteps}
         currentStep={currentStep}
         untilNextStep={untilNextStep}
+        isRunning={isRunning}
+        setIsRunning={setIsRunning}
+      />
+      <StepsList
+        isRunning={isRunning}
+        steps={calculatedSteps}
+        currentStep={currentStep}
       />
     </div>
   );

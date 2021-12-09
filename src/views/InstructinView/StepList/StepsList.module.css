@@ -1,0 +1,33 @@
+.heading {
+  margin: 0.5rem;
+  color: darkcyan;
+  font-variant: small-caps;
+}
+
+.scrollable {
+  margin: 2em;
+  background-color: darkslategray;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.timeGuide {
+  display: block;
+  font-size: 1.2em;
+  font-family: monospace;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: darkgoldenrod;
+}
+
+.instruction {
+  font-size: 1.2em;
+  color: darkcyan;
+}
+
+.activeText {
+  color: palegoldenrod;
+  font-size: 1.2em;
+}

@@ -14,30 +14,26 @@
     ],
     "steps": [
       {
-        "order": 1,
         "duration": 10,
         "instruction": "Pour {0.12} ml of water and wait to bloom."
       },
       {
-        "order": 2,
         "duration": 10,
         "instruction": "Swirl the brewer until the grounds look well mixed."
       },
-      { "order": 3, "duration": 30, "instruction": "Wait 30 seconds." },
+      { "duration": 30, "instruction": "Wait 30 seconds." },
       {
-        "order": 4,
         "duration": 30,
         "instruction": "Pour water until {0.6} ml."
       },
-      { "order": 5, "duration": 5, "instruction": "Wait 5 seconds." },
+      { "duration": 5, "instruction": "Wait 5 seconds." },
       {
-        "order": 6,
         "duration": 30,
         "instruction": "Keep pouring water until {1} ml."
       },
-      { "order": 7, "duration": 5, "instruction": "Stir for 5 seconds." },
-      { "order": 8, "duration": 20, "instruction": "Wait for the drawdown." },
-      { "order": 9, "duration": 0, "instruction": "Enjoy your coffee!" }
+      { "duration": 5, "instruction": "Stir for 5 seconds." },
+      { "duration": 20, "instruction": "Wait for the drawdown." },
+      { "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   },
   {
@@ -50,22 +46,19 @@
     "tools": ["A french press brewer.", "An eletronic scale.", "Two spoons."],
     "steps": [
       {
-        "order": 1,
         "duration": 10,
         "instruction": "Pour {1} ml of water."
       },
-      { "order": 2, "duration": 240, "instruction": "Wait 4 minutes." },
+      { "duration": 240, "instruction": "Wait 4 minutes." },
       {
-        "order": 3,
         "duration": 15,
         "instruction": "Use spoons to stir floating crusts and discard what remains floating."
       },
       {
-        "order": 4,
         "duration": 300,
         "instruction": "Wait at least 5 minutes."
       },
-      { "order": 6, "duration": 0, "instruction": "Enjoy your coffee!" }
+      { "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   }
 ]

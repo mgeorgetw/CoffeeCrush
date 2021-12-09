@@ -1,4 +1,3 @@
-import React from "react";
 import { sum } from "d3";
 import styles from "./OverviewPie.module.css";
 export const PieLabels = ({

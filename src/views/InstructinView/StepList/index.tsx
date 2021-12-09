@@ -1,32 +1,29 @@
+import { Steps } from "../../../types/TypeBrewMethod";
+import styles from "./StepsList.module.css";
 export const StepsList = ({
-  calculatedSteps,
+  steps,
   currentStep,
   isRunning,
-  untilNextStep,
 }: {
-  calculatedSteps: Array<{
-    order: number;
-    duration: number;
-    instruction: string;
-  }>;
+  steps: Array<Steps>;
   isRunning: boolean;
   currentStep: number;
-  untilNextStep: number;
 }) => {
   return (
     <>
-      <h4 className="low_key_heading">Steps</h4>
-      <div className="scroll">
+      <div className={styles.scrollable}>
+        <h4 className={styles.heading}>Steps</h4>
         <ul className="item-lists">
           {!isRunning ? (
-            calculatedSteps.map((step, index) => (
+            steps.map((step, index) => (
               <li className="list-item" key={index}>
-                <span className="digits">
+                <span className={styles.timeGuide}>
                   {step.duration} second{step.duration > 1 ? "s" : ""}
                 </span>
                 <span
-                  className={`instruction ${
-                    step.order === currentStep && "active-text"
+                  className={`${styles.instruction} ${
+                    index === currentStep - 1 && styles.activeText
+                  }
                   }`}
                 >
                   {step.instruction}
@@ -36,18 +33,16 @@ export const StepsList = ({
           ) : (
             <>
               <li className="list-item">
-                <span className="digits">
-                  {untilNextStep} seconds remaining
-                </span>
-                <span className="instruction active-text">
-                  {calculatedSteps[currentStep - 1].instruction}
+                <span className={styles.timeGuide}>Do</span>
+                <span className={styles.activeText}>
+                  {steps[currentStep - 1].instruction}
                 </span>
               </li>
-              {calculatedSteps[currentStep] && (
+              {steps[currentStep] && (
                 <li className="list-item">
-                  <span className="digits">Next Up</span>
-                  <span className="instruction">
-                    {calculatedSteps[currentStep].instruction}
+                  <span className={styles.timeGuide}>Next Up</span>
+                  <span className={styles.instruction}>
+                    {steps[currentStep].instruction}
                   </span>
                 </li>
               )}

@@ -1,6 +1,6 @@
 .pieChart path {
-  stroke: black;
-  stroke-width: 2px;
+  stroke: darkslategray;
+  stroke-width: 3px;
 }
 
 .pieChart text {

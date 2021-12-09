@@ -41,11 +41,6 @@ body {
   font-weight: 600;
 }
 
-.low_key_heading {
-  color: darkcyan;
-  font-variant: small-caps;
-}
-
 .nav_heading {
   color: palegoldenrod;
   display: inline-block;
@@ -65,8 +60,8 @@ body {
   border: none;
   background-color: inherit;
   color: darkgoldenrod;
-  font-size: 16px;
-  font-weight: medium;
+  font-size: 1.1em;
+  font-weight: 500;
   cursor: pointer;
   float: left;
 }
@@ -104,8 +99,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 5em;
-  height: 5em;
+  width: 5.5em;
+  height: 5.5em;
   border-radius: 60px;
   background-color: #3a3a3c;
   color: goldenrod;
@@ -125,6 +120,7 @@ body {
 
 /* Styling number input */
 .number_input {
+  font-size: 16px;
   text-align: center;
   width: 2.5em;
   border: none;
@@ -165,7 +161,7 @@ input[type="number"]::-webkit-outer-spin-button {
   position: fixed;
   top: 0vh;
   height: 98vh;
-  width: 95vw;
+  width: 97vw;
   max-width: inherit;
   overflow: hidden;
   background-color: darkslategray;
@@ -178,7 +174,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1.3rem;
+  margin: 1rem 0.5rem;
 }
 
 .slider.close {
@@ -186,23 +182,9 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 0;
 }
 
-#stopwatch {
-  height: 50vh;
-}
-
 #stopwatch > .digits {
   font-size: 4em;
   font-weight: 200;
-}
-
-.scroll {
-  height: 30vh;
-  margin: 0 2em;
-  background-color: darkslategray;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-y: auto;
-  text-align: center;
 }
 
 .digits {
@@ -213,9 +195,10 @@ input[type="number"]::-webkit-outer-spin-button {
   color: darkgoldenrod;
 }
 
-.instruction {
-  font-size: 1.2em;
-  color: darkcyan;
+.countDownTimer {
+  font-size: 7em;
+  letter-spacing: 0.05em;
+  fill: goldenrod;
 }
 
 .active-text {
