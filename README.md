@@ -1,3 +1,3 @@
 # Coffee Crush
 
-A timer for coffee brewers.
+(Work in progress) A timer for coffee brewers.
