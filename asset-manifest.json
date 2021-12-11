@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mgeorgetw/CoffeeCrush/static/css/main.33abd2e1.chunk.css",
+    "main.js": "/mgeorgetw/CoffeeCrush/static/js/main.fd39bd4e.chunk.js",
+    "main.js.map": "/mgeorgetw/CoffeeCrush/static/js/main.fd39bd4e.chunk.js.map",
+    "runtime-main.js": "/mgeorgetw/CoffeeCrush/static/js/runtime-main.cbf3b8e3.js",
+    "runtime-main.js.map": "/mgeorgetw/CoffeeCrush/static/js/runtime-main.cbf3b8e3.js.map",
+    "static/js/2.2d0272b8.chunk.js": "/mgeorgetw/CoffeeCrush/static/js/2.2d0272b8.chunk.js",
+    "static/js/2.2d0272b8.chunk.js.map": "/mgeorgetw/CoffeeCrush/static/js/2.2d0272b8.chunk.js.map",
+    "static/js/3.093c12ed.chunk.js": "/mgeorgetw/CoffeeCrush/static/js/3.093c12ed.chunk.js",
+    "static/js/3.093c12ed.chunk.js.map": "/mgeorgetw/CoffeeCrush/static/js/3.093c12ed.chunk.js.map",
+    "index.html": "/mgeorgetw/CoffeeCrush/index.html",
+    "static/css/main.33abd2e1.chunk.css.map": "/mgeorgetw/CoffeeCrush/static/css/main.33abd2e1.chunk.css.map",
+    "static/js/2.2d0272b8.chunk.js.LICENSE.txt": "/mgeorgetw/CoffeeCrush/static/js/2.2d0272b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cbf3b8e3.js",
+    "static/js/2.2d0272b8.chunk.js",
+    "static/css/main.33abd2e1.chunk.css",
+    "static/js/main.fd39bd4e.chunk.js"
+  ]
+}
