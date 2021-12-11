@@ -1,4 +1,4 @@
-import styles from "./OverviewPie.module.css";
+import styles from "./DonutProgress.module.css";
 export const DonutChart = ({ pieData, pieArc, colorPie, currentStep }) => {
   return colorPie(pieData).map((d) => {
     let fill;

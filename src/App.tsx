@@ -30,6 +30,7 @@ function App() {
         water={water}
         setWater={setWater}
       />
+
       <InstructionView
         methodDetails={chosenMethodDetails!}
         beanWeight={beanWeight}

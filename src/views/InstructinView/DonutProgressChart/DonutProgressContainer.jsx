@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { arc, pie } from "d3";
 import { DonutChart } from "./DonutChart";
+import styles from "./DonutProgress.module.css";
 // import { PieLabels } from "./PieLabels";
 
-const width = window.innerWidth < 640 ? window.innerWidth * 0.7 : 640 * 0.7;
+const width = window.innerWidth < 640 ? window.innerWidth * 0.6 : 640 * 0.6;
 const height = width;
 
 const pieRadius = width * 0.5;
@@ -16,6 +17,7 @@ const dataValue = (d) => d.duration;
 
 export const DonutProgressContainer = ({
   data,
+  isRunning,
   currentStep,
   untilNextStep,
 }) => {
@@ -32,13 +34,42 @@ export const DonutProgressContainer = ({
             dataValue={dataValue}
             currentStep={currentStep}
           />
+          <defs>
+            <radialGradient
+              id="grad1"
+              cx="50%"
+              cy="50%"
+              r="50%"
+              fx="50%"
+              fy="50%"
+            >
+              <stop
+                offset="0%"
+                style={{ stopColor: "#3a3a3c", stopOpacity: 1 }}
+              />
+              <stop
+                offset="90%"
+                style={{ stopColor: "#3a3a3c", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#48484a", stopOpacity: 1 }}
+              />
+            </radialGradient>
+          </defs>
+          <circle
+            className={styles.button}
+            cx="0"
+            cy="0"
+            r={pieInnerMargin - 3}
+          />
           <text
-            className="digits countDownTimer"
+            className={`digits ${styles.countDownTimer}`}
             textAnchor="middle"
             dominantBaseline="middle"
             dy="0.07em"
           >
-            {untilNextStep}
+            {isRunning ? untilNextStep : "Start"}
           </text>
           {/* <PieLabels */}
           {/*   pieData={pieData} */}

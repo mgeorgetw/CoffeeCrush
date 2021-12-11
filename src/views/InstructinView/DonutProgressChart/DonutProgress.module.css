@@ -12,6 +12,21 @@
   stroke: none;
 }
 
+.button {
+  /* fill: #3a3a3c; */
+  cursor: pointer;
+  fill: url(#grad1);
+}
+
+.button:hover {
+  fill: #3a3a3c;
+}
+
+.countDownTimer {
+  font-size: 3.5em;
+  fill: goldenrod;
+}
+
 .pieLabelStroke {
   stroke: white;
   stroke-width: 3px;

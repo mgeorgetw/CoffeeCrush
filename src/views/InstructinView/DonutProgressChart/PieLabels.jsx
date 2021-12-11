@@ -1,5 +1,5 @@
 import { sum } from "d3";
-import styles from "./OverviewPie.module.css";
+import styles from "./DonutProgress.module.css";
 export const PieLabels = ({
   pieData,
   pieArc,

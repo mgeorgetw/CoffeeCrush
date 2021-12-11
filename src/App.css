@@ -182,23 +182,12 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 0;
 }
 
-#stopwatch > .digits {
-  font-size: 4em;
-  font-weight: 200;
-}
-
 .digits {
   display: block;
   font-family: monospace;
   font-variant: small-caps;
   font-weight: bold;
   color: darkgoldenrod;
-}
-
-.countDownTimer {
-  font-size: 7em;
-  letter-spacing: 0.05em;
-  fill: goldenrod;
 }
 
 .active-text {

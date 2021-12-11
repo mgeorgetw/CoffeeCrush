@@ -23,6 +23,7 @@ export const DonutProgressChart = ({
     >
       <DonutProgressContainer
         data={steps}
+        isRunning={isRunning}
         currentStep={currentStep}
         untilNextStep={untilNextStep}
       />
