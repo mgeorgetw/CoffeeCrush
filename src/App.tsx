@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="app-title">Coffee Guide</h1>
+        <h1 className="app-title">Coffee Crush</h1>
       </header>
 
       <GetReadyView
