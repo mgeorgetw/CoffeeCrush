@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Coffee Crush",
+  "name": "Coffee Crush: Timer for Coffee Brewers",
   "icons": [
     {
       "src": "favicon.ico",
