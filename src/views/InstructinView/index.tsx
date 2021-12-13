@@ -8,6 +8,7 @@ const bell = require("../../assets/bell.mp3");
 
 const playAudio = () => {
   // Needs "default" https://stackoverflow.com/a/65468189/6698235
+  // TODO: this is blocked by ios
   const audioEl: HTMLAudioElement = new Audio(bell.default);
   audioEl.play();
 };
@@ -94,11 +95,6 @@ export const InstructionView = ({
         steps={calculatedSteps}
         currentStep={currentStep}
       />
-      {/* <div> */}
-      {/*   <audio className="audio-element"> */}
-      {/*     <source src="../../assets/bell.mp3"></source> */}
-      {/*   </audio> */}
-      {/* </div> */}
     </div>
   );
 };

@@ -85,7 +85,7 @@ export const DonutProgressContainer = ({
           textAnchor="middle"
           dominantBaseline="middle"
           x={pieRadius}
-          y={pieRadius}
+          y={pieRadius + 10}
         >
           <tspan dy="-0.5em">{isRunning ? displayText[0] : "Push to"}</tspan>
           <tspan x={pieRadius} dy="1em">
