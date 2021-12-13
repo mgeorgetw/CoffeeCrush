@@ -1,4 +1,6 @@
 export interface Steps {
+  type: string;
+  volume?: number;
   duration: number;
   instruction: string;
 }

@@ -3,6 +3,14 @@ import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import { DonutProgressChart } from "./DonutProgressChart";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
+// import { bell } from "../../assets/bell.mp3";
+const bell = require("../../assets/bell.mp3");
+
+const playAudio = () => {
+  // Needs "default" https://stackoverflow.com/a/65468189/6698235
+  const audioEl: HTMLAudioElement = new Audio(bell.default);
+  audioEl.play();
+};
 
 // TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
 
@@ -41,6 +49,7 @@ export const InstructionView = ({
         setTime((prevTime) => prevTime + 1);
         if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
         if (stepsLeft > 0 && untilNextStep === 1) {
+          playAudio();
           setCurrentStep((prevOrder) => prevOrder + 1);
           setUntilNextStep(calculatedSteps[currentStep].duration);
         }
@@ -73,6 +82,7 @@ export const InstructionView = ({
         setIsRunning={setIsRunning}
       />
       <DonutProgressChart
+        time={time}
         steps={calculatedSteps}
         currentStep={currentStep}
         untilNextStep={untilNextStep}
@@ -84,6 +94,11 @@ export const InstructionView = ({
         steps={calculatedSteps}
         currentStep={currentStep}
       />
+      {/* <div> */}
+      {/*   <audio className="audio-element"> */}
+      {/*     <source src="../../assets/bell.mp3"></source> */}
+      {/*   </audio> */}
+      {/* </div> */}
     </div>
   );
 };

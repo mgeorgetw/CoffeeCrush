@@ -4,12 +4,14 @@ import { DonutProgressContainer } from "./DonutProgressContainer";
 // const LoadSpinner = () => <pre>loading...</pre>;
 
 export const DonutProgressChart = ({
+  time,
   steps,
   currentStep,
   untilNextStep,
   isRunning,
   setIsRunning,
 }: {
+  time: number;
   steps: Array<Steps>;
   currentStep: number;
   untilNextStep: number;
@@ -22,6 +24,7 @@ export const DonutProgressChart = ({
       onClick={() => (isRunning ? setIsRunning(false) : setIsRunning(true))}
     >
       <DonutProgressContainer
+        time={time}
         data={steps}
         isRunning={isRunning}
         currentStep={currentStep}

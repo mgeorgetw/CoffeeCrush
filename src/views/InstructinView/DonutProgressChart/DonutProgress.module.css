@@ -1,3 +1,8 @@
+.pieNeedle path {
+  stroke: darkslategray;
+  stroke-width: 0;
+}
+
 .pieChart path {
   stroke: darkslategray;
   stroke-width: 3px;
@@ -18,7 +23,7 @@
   fill: url(#grad1);
 }
 
-.button:hover {
+.button:active {
   fill: #3a3a3c;
 }
 

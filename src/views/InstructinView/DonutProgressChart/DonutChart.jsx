@@ -7,7 +7,7 @@ export const DonutChart = ({ pieData, pieArc, colorPie, currentStep }) => {
     } else if (d.index === currentStep - 1) {
       fill = "goldenrod";
     } else {
-      fill = "#3a3a3c";
+      fill = "darkcyan";
     }
     return (
       <g className={styles.pieChart} key={d.index}>
