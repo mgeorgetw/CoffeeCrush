@@ -2,7 +2,6 @@ import styles from "./DonutProgress.module.css";
 export const DonutChart = ({ pieData, pieArc, colorPie, currentStep }) => {
   return colorPie(pieData).map((d) => {
     const type = d.data.type;
-    console.log(d);
     let fill;
     // if (d.index < currentStep - 1) {
     //   fill = "darkgoldenrod";

@@ -28,7 +28,9 @@
 }
 
 .countDownTimer {
-  font-size: 2.8em;
+  font-family: monospace;
+  text-transform: capitalize;
+  font-size: 1.7em;
   fill: goldenrod;
 }
 

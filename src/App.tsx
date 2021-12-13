@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { GetReadyView } from "./views/GetReadyView";
-import { InstructionView } from "./views/InstructinView";
+import { InstructionView } from "./views/InstructionView";
 import brewMethods from "./data/BrewMethods.json";
 import "./App.css";
 

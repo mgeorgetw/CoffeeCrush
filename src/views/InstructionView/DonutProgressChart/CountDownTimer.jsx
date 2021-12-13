@@ -19,13 +19,13 @@ export const CountDownTimer = ({
 
   return (
     <text
-      className={`digits ${styles.countDownTimer}`}
+      className={`${styles.countDownTimer}`}
       textAnchor="middle"
-      dominantBaseline="middle"
       x={pieRadius}
       y={pieRadius}
+      dy="-0.17em"
     >
-      <tspan dy="-0.3em">{isRunning ? displayText[0] : "Push to"}</tspan>
+      <tspan>{isRunning ? displayText[0] : "Push"}</tspan>
       <tspan x={pieRadius} dy="1em">
         {isRunning ? displayText[1] : "Start"}
       </tspan>

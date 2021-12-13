@@ -10,6 +10,7 @@ const playAudio = () => {
   // Needs "default" https://stackoverflow.com/a/65468189/6698235
   // TODO: this is blocked by iOS
   const audioEl: HTMLAudioElement = new Audio(bell.default);
+  audioEl.autoplay = true;
   audioEl.play();
 };
 
@@ -33,6 +34,9 @@ export const InstructionView = ({
     methodDetails.steps[0].duration
   );
   const [isRunning, setIsRunning] = useState<boolean>(false);
+
+  const audioEl: HTMLAudioElement = new Audio();
+  audioEl.autoplay = true;
 
   const calculatedSteps = methodDetails.steps.map((step) => {
     return {
