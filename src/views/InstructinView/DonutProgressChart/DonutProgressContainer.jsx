@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { arc, pie } from "d3";
 import { DonutChart } from "./DonutChart";
 import { DonutNeedle } from "./DonutNeedle";
+import { CountDownTimer } from "./CountDownTimer";
 import styles from "./DonutProgress.module.css";
 
 const width = window.innerWidth < 640 ? window.innerWidth * 0.6 : 640 * 0.6;
@@ -14,7 +15,7 @@ const pieInnerMargin = pieRadius * 0.75;
 const pieArc = arc().innerRadius(pieInnerMargin).outerRadius(pieOuterMargin);
 const needleArc = arc()
   .innerRadius(pieInnerMargin)
-  .outerRadius(pieInnerMargin - 5);
+  .outerRadius(pieInnerMargin - 10);
 
 const dataValue = (d) => d.duration;
 const needleValue = (d) => d.step;
@@ -28,7 +29,7 @@ const SvgRoundButton = () => (
         <stop offset="100%" style={{ stopColor: "#48484a", stopOpacity: 1 }} />
       </radialGradient>
     </defs>
-    <circle className={styles.button} cx="0" cy="0" r={pieInnerMargin - 10} />
+    <circle className={styles.button} cx="0" cy="0" r={pieInnerMargin - 13} />
   </>
 );
 
@@ -52,14 +53,6 @@ export const DonutProgressContainer = ({
   const needlePie = useMemo(() => pie().sort(null).value(needleValue), []);
   const colorPie = useMemo(() => pie().sort(null).value(dataValue), []);
 
-  const displayText = useMemo(() => {
-    const currentData = data[currentStep - 1];
-    if (currentData.type === "pour") {
-      return [currentData.type, `${currentData.volume} ml`];
-    } else {
-      return [currentData.type, `${untilNextStep} sec`];
-    }
-  }, [data, currentStep, untilNextStep]);
   return (
     <>
       <svg width={width} height={height}>
@@ -80,18 +73,13 @@ export const DonutProgressContainer = ({
           />
           <SvgRoundButton />
         </g>
-        <text
-          className={`digits ${styles.countDownTimer}`}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          x={pieRadius}
-          y={pieRadius + 10}
-        >
-          <tspan dy="-0.5em">{isRunning ? displayText[0] : "Push to"}</tspan>
-          <tspan x={pieRadius} dy="1em">
-            {isRunning ? displayText[1] : "Start"}
-          </tspan>
-        </text>
+        <CountDownTimer
+          data={data}
+          currentStep={currentStep}
+          untilNextStep={untilNextStep}
+          pieRadius={pieRadius}
+          isRunning={isRunning}
+        />
       </svg>
     </>
   );

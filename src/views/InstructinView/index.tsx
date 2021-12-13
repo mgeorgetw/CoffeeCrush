@@ -3,12 +3,12 @@ import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import { DonutProgressChart } from "./DonutProgressChart";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
-// import { bell } from "../../assets/bell.mp3";
+// import bell from "../../assets/bell.mp3";
 const bell = require("../../assets/bell.mp3");
 
 const playAudio = () => {
   // Needs "default" https://stackoverflow.com/a/65468189/6698235
-  // TODO: this is blocked by ios
+  // TODO: this is blocked by iOS
   const audioEl: HTMLAudioElement = new Audio(bell.default);
   audioEl.play();
 };
@@ -33,6 +33,7 @@ export const InstructionView = ({
     methodDetails.steps[0].duration
   );
   const [isRunning, setIsRunning] = useState<boolean>(false);
+
   const calculatedSteps = methodDetails.steps.map((step) => {
     return {
       ...step,

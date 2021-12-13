@@ -18,9 +18,9 @@
 }
 
 .button {
-  /* fill: #3a3a3c; */
+  fill: #3a3a3c;
   cursor: pointer;
-  fill: url(#grad1);
+  /* fill: url(#grad1); */
 }
 
 .button:active {
