@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/CoffeeCrush/static/css/main.b73e8627.chunk.css",
-    "main.js": "/CoffeeCrush/static/js/main.080c840b.chunk.js",
-    "main.js.map": "/CoffeeCrush/static/js/main.080c840b.chunk.js.map",
+    "main.css": "/CoffeeCrush/static/css/main.1c0dab69.chunk.css",
+    "main.js": "/CoffeeCrush/static/js/main.390c33f6.chunk.js",
+    "main.js.map": "/CoffeeCrush/static/js/main.390c33f6.chunk.js.map",
     "runtime-main.js": "/CoffeeCrush/static/js/runtime-main.a3e59bb9.js",
     "runtime-main.js.map": "/CoffeeCrush/static/js/runtime-main.a3e59bb9.js.map",
-    "static/js/2.69bd0c76.chunk.js": "/CoffeeCrush/static/js/2.69bd0c76.chunk.js",
-    "static/js/2.69bd0c76.chunk.js.map": "/CoffeeCrush/static/js/2.69bd0c76.chunk.js.map",
+    "static/js/2.8ca49676.chunk.js": "/CoffeeCrush/static/js/2.8ca49676.chunk.js",
+    "static/js/2.8ca49676.chunk.js.map": "/CoffeeCrush/static/js/2.8ca49676.chunk.js.map",
     "static/js/3.101cde95.chunk.js": "/CoffeeCrush/static/js/3.101cde95.chunk.js",
     "static/js/3.101cde95.chunk.js.map": "/CoffeeCrush/static/js/3.101cde95.chunk.js.map",
     "index.html": "/CoffeeCrush/index.html",
-    "static/css/main.b73e8627.chunk.css.map": "/CoffeeCrush/static/css/main.b73e8627.chunk.css.map",
-    "static/js/2.69bd0c76.chunk.js.LICENSE.txt": "/CoffeeCrush/static/js/2.69bd0c76.chunk.js.LICENSE.txt",
+    "static/css/main.1c0dab69.chunk.css.map": "/CoffeeCrush/static/css/main.1c0dab69.chunk.css.map",
+    "static/js/2.8ca49676.chunk.js.LICENSE.txt": "/CoffeeCrush/static/js/2.8ca49676.chunk.js.LICENSE.txt",
     "static/media/bell.mp3": "/CoffeeCrush/static/media/bell.e775700b.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.a3e59bb9.js",
-    "static/js/2.69bd0c76.chunk.js",
-    "static/css/main.b73e8627.chunk.css",
-    "static/js/main.080c840b.chunk.js"
+    "static/js/2.8ca49676.chunk.js",
+    "static/css/main.1c0dab69.chunk.css",
+    "static/js/main.390c33f6.chunk.js"
   ]
 }
