@@ -60,25 +60,31 @@ export const InstructionView = ({
         setCurrentStep={setCurrentStep}
         setUntilNextStep={setUntilNextStep}
       />
-      <Stopwatch
-        time={time}
-        isRunning={isRunning}
-        setIsRunning={setIsRunning}
-      />
-      <DonutProgressChart
-        time={time}
-        steps={calculatedSteps}
-        currentStep={currentStep}
-        stepsLeft={stepsLeft}
-        untilNextStep={untilNextStep}
-        isRunning={isRunning}
-        setIsRunning={setIsRunning}
-      />
-      <StepsList
-        isRunning={isRunning}
-        steps={calculatedSteps}
-        currentStep={currentStep}
-      />
+      <div className={styles.flexLayout}>
+        <div className={styles.upAndLeft}>
+          <Stopwatch
+            time={time}
+            isRunning={isRunning}
+            setIsRunning={setIsRunning}
+          />
+          <DonutProgressChart
+            time={time}
+            steps={calculatedSteps}
+            currentStep={currentStep}
+            stepsLeft={stepsLeft}
+            untilNextStep={untilNextStep}
+            isRunning={isRunning}
+            setIsRunning={setIsRunning}
+          />
+        </div>
+        <div className={styles.bottomAndRight}>
+          <StepsList
+            isRunning={isRunning}
+            steps={calculatedSteps}
+            currentStep={currentStep}
+          />
+        </div>
+      </div>
     </div>
   );
 };

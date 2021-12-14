@@ -5,7 +5,10 @@ import { DonutNeedle } from "./DonutNeedle";
 import { CountDownTimer } from "./CountDownTimer";
 import styles from "./DonutProgress.module.css";
 
-const width = window.innerWidth < 640 ? window.innerWidth * 0.6 : 640 * 0.6;
+const width =
+  window.innerWidth < window.innerHeight
+    ? window.innerWidth * 0.6
+    : window.innerHeight * 0.6;
 const height = width;
 
 const pieRadius = width * 0.5;
