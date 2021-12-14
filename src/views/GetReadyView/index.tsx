@@ -1,12 +1,9 @@
-import { RadioButton } from "../../elements/RadioButton";
-import { Card } from "../../elements/Card";
-import { PreparationCard } from "./PreparationCard";
-import { DoseCard } from "./DoseCard";
-import brewMethods from "../../data/BrewMethods.json";
-import "../../App.css";
 import { TypeBrewMethod } from "../../types/TypeBrewMethod";
-
-// TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
+import brewMethods from "../../data/BrewMethods.json";
+import { Card } from "../../elements/Card";
+import { RadioButton } from "../../elements/RadioButton";
+import { DoseCard } from "./DoseCard";
+import { PreparationCard } from "./PreparationCard";
 
 export const GetReadyView = ({
   method,

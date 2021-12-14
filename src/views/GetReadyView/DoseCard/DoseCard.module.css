@@ -1,0 +1,61 @@
+.formWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formInCircle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 5.5em;
+  height: 5.5em;
+  border-radius: 60px;
+  background-color: #3a3a3c;
+  color: goldenrod;
+  box-shadow: inset 1px 3px 3px -4px black, inset -1px -1.5px 3px -4px black;
+}
+
+.formLabel {
+  margin: 1em;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: darkgoldenrod;
+  width: 7em;
+}
+
+/* Styling number input */
+.numberInput {
+  font-size: 16px; /* Avoid auto-zoom-in on iOS */
+  text-align: center;
+  width: 2.5em;
+  border: none;
+  border-bottom: 1px solid goldenrod;
+  background-color: inherit;
+  color: goldenrod;
+
+  /* Selects all numbers while clicked */
+  user-select: all;
+  -moz-user-select: -moz-all;
+  -webkit-user-select: all;
+}
+
+/* Hide default spin buttons of number input */
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

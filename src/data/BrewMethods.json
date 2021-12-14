@@ -1,6 +1,7 @@
 [
   {
     "method": "The Ultimate V60",
+    "learn": "https://youtu.be/AI4ynXzkSQo",
     "grindSize": "Medium",
     "defaultCoffeeInGram": 30,
     "defaultWaterInMl": 500,
@@ -49,6 +50,7 @@
   },
   {
     "method": "French Press",
+    "learn": "https://youtu.be/st571DYYTR8",
     "grindSize": "Medium",
     "defaultCoffeeInGram": 30,
     "defaultWaterInMl": 500,
@@ -78,6 +80,7 @@
   },
   {
     "method": "Iced filter coffee",
+    "learn": "https://youtu.be/PApBycDrPo0",
     "grindSize": "Fine",
     "defaultCoffeeInGram": 35,
     "defaultWaterInMl": 500,

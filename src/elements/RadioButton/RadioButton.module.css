@@ -1,8 +1,8 @@
 .btnContainer {
   position: relative;
-  height: 6rem;
-  width: 6rem;
-  margin: 0.5rem;
+  height: 5rem;
+  width: 5rem;
+  margin: 0.9rem;
 }
 
 .hiddenInput {
@@ -21,10 +21,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 5em;
-  height: 5em;
-  border: 5px solid #1c1c1e;
-  border-radius: 60px;
+  width: 5rem;
+  height: 5rem;
+  border: 0.4rem solid #1c1c1e;
+  border-radius: 3rem;
   background-color: #3a3a3c;
   box-shadow: inset 6px 7px 3px -3px #48484a, inset -4px -3px 3px -3px #48484a;
 }
@@ -39,5 +39,5 @@
 }
 
 .hiddenInput:checked + .roundToggleButton {
-  border: 5px solid goldenrod;
+  border: 0.4rem solid goldenrod;
 }

@@ -33,7 +33,6 @@ function App() {
 
       <InstructionView
         methodDetails={chosenMethodDetails!}
-        beanWeight={beanWeight}
         water={water}
         isReady={isReady}
         setIsReady={setIsReady}

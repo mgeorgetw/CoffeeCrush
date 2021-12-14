@@ -1,0 +1,19 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0vh;
+  height: 98vh;
+  width: 97vw;
+  max-width: inherit;
+  overflow: hidden;
+  background-color: darkslategray;
+  border: 5px solid darkgoldenrod;
+  border-radius: 20px;
+  transition: all 0.7s;
+}
+
+.slider.close {
+  top: 100%;
+  height: 0;
+}

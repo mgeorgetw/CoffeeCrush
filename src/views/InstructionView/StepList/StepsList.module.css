@@ -23,11 +23,11 @@
 }
 
 .instruction {
-  font-size: 1.2em;
+  font-size: larger;
   color: darkcyan;
 }
 
 .activeText {
   color: palegoldenrod;
-  font-size: 1.2em;
+  font-size: larger;
 }

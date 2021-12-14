@@ -1,0 +1,16 @@
+.subtleHeading {
+  font-size: medium;
+  font-weight: bold;
+  color: darkcyan;
+}
+
+.list {
+  padding-left: 0;
+}
+
+.listItem {
+  list-style: none;
+  margin-top: 1em;
+  color: palegoldenrod;
+  font-size: large;
+}

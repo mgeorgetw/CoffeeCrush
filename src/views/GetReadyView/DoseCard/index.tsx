@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "../../../elements/Card";
 import { beanWaterCalculator } from "../../../utils/math";
+import styles from "./DoseCard.module.css";
 
 export const DoseCard = ({
   ratio,
@@ -40,17 +41,15 @@ export const DoseCard = ({
       <div id="dose-section">
         <h2 className="heading">Decide on dose</h2>
         <div className="centerSpacedFlexContainer">
-          <div className="info-btn-group">
-            <div className="btn-with-info">
-              <div className="btn-with-info">{grindSize}</div>
-            </div>
-            <label className="info-btn-label">Grind Size</label>
+          <div className={styles.formWrapper}>
+            <div className={styles.formInCircle}>{grindSize}</div>
+            <label className={styles.formLabel}>Grind Size</label>
           </div>
 
-          <div className="info-btn-group">
-            <div className="btn-with-info">
+          <div className={styles.formWrapper}>
+            <div className={styles.formInCircle}>
               <input
-                className="number_input"
+                className={styles.numberInput}
                 type="number"
                 name="ground_coffee"
                 id="ground_coffee"
@@ -59,12 +58,12 @@ export const DoseCard = ({
               />{" "}
               g
             </div>
-            <label className="info-btn-label">Ground Coffee</label>
+            <label className={styles.formLabel}>Ground Coffee</label>
           </div>
-          <div className="info-btn-group">
-            <div className="btn-with-info">
+          <div className={styles.formWrapper}>
+            <div className={styles.formInCircle}>
               <input
-                className="number_input"
+                className={styles.numberInput}
                 type="number"
                 name="water"
                 id="water"
@@ -73,7 +72,7 @@ export const DoseCard = ({
               />{" "}
               ml
             </div>
-            <label className="info-btn-label">Water</label>
+            <label className={styles.formLabel}>Water</label>
           </div>
         </div>
       </div>
