@@ -12,8 +12,26 @@ argglobal
 %argdel
 $argadd ~/Git/CoffeeCrush
 edit ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/CountDownTimer.jsx
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 25 + 20) / 41)
+exe '2resize ' . ((&lines * 12 + 20) / 41)
 argglobal
-balt ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/DonutProgress.module.css
+balt ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/index.tsx
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -28,31 +46,52 @@ normal! zo
 normal! zo
 28
 normal! zo
-let s:l = 29 - ((28 * winheight(0) + 19) / 38)
+let s:l = 5 - ((2 * winheight(0) + 12) / 25)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 29
+keepjumps 5
 normal! 033|
 lcd ~/Git/CoffeeCrush
+wincmd w
+argglobal
+if bufexists("term://~/Git/CoffeeCrush//94931:/usr/local/bin/fish") | buffer term://~/Git/CoffeeCrush//94931:/usr/local/bin/fish | else | edit term://~/Git/CoffeeCrush//94931:/usr/local/bin/fish | endif
+if &buftype ==# 'terminal'
+  silent file term://~/Git/CoffeeCrush//94931:/usr/local/bin/fish
+endif
+balt ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/CountDownTimer.jsx
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=3
+setlocal fml=1
+setlocal fdn=10
+setlocal fen
+let s:l = 1 - ((0 * winheight(0) + 6) / 12)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+lcd ~/Git/CoffeeCrush
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 25 + 20) / 41)
+exe '2resize ' . ((&lines * 12 + 20) / 41)
 tabnext 1
-badd +3 ~/Git/CoffeeCrush/src/App.tsx
-badd +1 ~/Git/CoffeeCrush/src/views/InstructinView/DonutProgressChart/CountDownTimer.jsx
-badd +1 ~/Git/CoffeeCrush/src/views/InstructinView/DonutProgressChart/DonutProgressContainer.jsx
-badd +23 ~/Git/CoffeeCrush/src/views/InstructinView/DonutProgressChart/DonutProgress.module.css
-badd +5 ~/Git/CoffeeCrush/src/views/InstructinView/DonutProgressChart/DonutChart.jsx
-badd +11 term://~/Git/CoffeeCrush//59196:/usr/local/bin/fish
+badd +5 ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/CountDownTimer.jsx
+badd +11 term://~/Git/CoffeeCrush//94931:/usr/local/bin/fish
 badd +38 ~/Git/CoffeeCrush/src/data/BrewMethods.json
-badd +16 ~/Git/CoffeeCrush/src/views/GetReadyView/PreparationCard/index.tsx
-badd +55 ~/Git/CoffeeCrush/src/App.css
-badd +23 ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/CountDownTimer.jsx
-badd +59 ~/Git/CoffeeCrush/node_modules/react-scripts/lib/react-app.d.ts
-badd +31 ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/DonutProgress.module.css
+badd +35 ~/Git/CoffeeCrush/src/views/InstructionView/index.tsx
+badd +56 ~/Git/CoffeeCrush/src/views/InstructionView/DonutProgressChart/index.tsx
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOFc
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

@@ -3,18 +3,6 @@ import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import { DonutProgressChart } from "./DonutProgressChart";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
-// import bell from "../../assets/bell.mp3";
-const bell = require("../../assets/bell.mp3");
-
-const playAudio = () => {
-  // Needs "default" https://stackoverflow.com/a/65468189/6698235
-  // TODO: this is blocked by iOS
-  const audioEl: HTMLAudioElement = new Audio(bell.default);
-  audioEl.autoplay = true;
-  audioEl.play();
-};
-
-// TODO: Stopwatch visualization: circular progress bar, real-time pouring suggestions.
 
 export const InstructionView = ({
   methodDetails,
@@ -35,9 +23,6 @@ export const InstructionView = ({
   );
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
-  const audioEl: HTMLAudioElement = new Audio();
-  audioEl.autoplay = true;
-
   const calculatedSteps = methodDetails.steps.map((step) => {
     return {
       ...step,
@@ -47,6 +32,7 @@ export const InstructionView = ({
       ),
     };
   });
+
   const stepsLeft = calculatedSteps.length - currentStep;
   useEffect(() => {
     let interval: number = 0;
@@ -55,7 +41,6 @@ export const InstructionView = ({
         setTime((prevTime) => prevTime + 1);
         if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
         if (stepsLeft > 0 && untilNextStep === 1) {
-          playAudio();
           setCurrentStep((prevOrder) => prevOrder + 1);
           setUntilNextStep(calculatedSteps[currentStep].duration);
         }
@@ -91,6 +76,7 @@ export const InstructionView = ({
         time={time}
         steps={calculatedSteps}
         currentStep={currentStep}
+        stepsLeft={stepsLeft}
         untilNextStep={untilNextStep}
         isRunning={isRunning}
         setIsRunning={setIsRunning}
