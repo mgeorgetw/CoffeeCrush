@@ -32,15 +32,10 @@
   .flexLayout {
     flex-direction: row;
   }
-  /* Float layout */
   .upAndLeft {
     flex: 1 0 50%;
-    /* width: 50%; */
-    /*padding-left: 1em;*/
   }
   .bottomAndRight {
     flex: 1 0 50%;
-    /* width: 50%; */
-    /*padding-left: 1em;*/
   }
 }

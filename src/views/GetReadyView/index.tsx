@@ -1,5 +1,5 @@
-import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import brewMethods from "../../data/BrewMethods.json";
+import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import { Card } from "../../elements/Card";
 import { RadioButton } from "../../elements/RadioButton";
 import { DoseCard } from "./DoseCard";
@@ -29,27 +29,29 @@ export const GetReadyView = ({
 
   return (
     <>
-      <Card>
-        <h2 className="heading">Choose a brew method</h2>
-        <div className="centerSpacedFlexContainer">
-          {brewMethods.map((item, index) =>
-            RadioButton(index, item.method, item.method, method, setMethod)
-          )}
-        </div>
-      </Card>
-      <DoseCard
-        ratio={chosenMethodDetails!.ratio}
-        grindSize={grindSize!}
-        beanWeight={beanWeight}
-        water={water}
-        setBeanWeight={setBeanWeight}
-        setWater={setWater}
-      />
-      <PreparationCard
-        methodDetails={chosenMethodDetails!}
-        coffeeNeeded={beanWeight}
-        waterNeeded={water}
-      />
+      <div className="flex-card-list">
+        <Card>
+          <h2 className="heading">Choose a brew method</h2>
+          <div className="centerSpacedFlexContainer">
+            {brewMethods.map((item, index) =>
+              RadioButton(index, item.method, item.method, method, setMethod)
+            )}
+          </div>
+        </Card>
+        <DoseCard
+          ratio={chosenMethodDetails!.ratio}
+          grindSize={grindSize!}
+          beanWeight={beanWeight}
+          water={water}
+          setBeanWeight={setBeanWeight}
+          setWater={setWater}
+        />
+        <PreparationCard
+          methodDetails={chosenMethodDetails!}
+          coffeeNeeded={beanWeight}
+          waterNeeded={water}
+        />
+      </div>
       <button className="prime_button" onClick={() => setIsReady(true)}>
         I'm ready
       </button>

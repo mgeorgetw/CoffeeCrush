@@ -4,8 +4,7 @@ import { DonutProgressContainer } from "./DonutProgressContainer";
 
 // Typescript does not seem to support 'import' of audio files.
 const bellAudioClip = require("../../../assets/bell.mp3");
-const silentAudioClip =
-  "data:audio/mpeg;base64,suqzbaaaaaabevrywfgaaaataaady29tbwvudabcawdtb3vuzejhbmsuy29tic8gtgftb25vdghlcxvllm9yzwburu5daaaahqaaa1n3axrjacbqbhvzimkpie5dscbtb2z0d2fyzqbusvqyaaaabgaaaziymzuavfntrqaaaa8aaanmyxzmntcuodmumtawaaaaaaaaaaaaaad/80deaaaaa0gaaaaatefnrtmumtawvvvvvvvvvvvvvuxbtuuzljewmfvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvf/zqsrbaaadsaaaaabvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvf/zqmskaaadsaaaaabvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv";
+const startAudioClip = require("../../../assets/start.mp3");
 
 export const DonutProgressChart = ({
   time,
@@ -41,7 +40,7 @@ export const DonutProgressChart = ({
       onClick={() => {
         isRunning ? setIsRunning(false) : setIsRunning(true);
         // Audio needs to be initiated by user interaction.
-        audioRef.current.src = silentAudioClip;
+        audioRef.current.src = startAudioClip.default;
       }}
     >
       <DonutProgressContainer

@@ -9,9 +9,9 @@
     "ratio": 16.66,
     "tools": [
       "A Hario V60 coffee brewer.",
-      "An eletronic scale.",
       "V60 filter paper.",
-      "A spoon."
+      "An eletronic scale.",
+      "A tea spoon."
     ],
     "steps": [
       {
@@ -84,12 +84,13 @@
     "grindSize": "Fine",
     "defaultCoffeeInGram": 35,
     "defaultWaterInMl": 500,
-    "waterTemperature": "100℃",
-    "ratio": 14.2,
+    "waterTemperature": "Ice + 100℃",
+    "ratio": 14.3,
     "tools": [
       "A Hario V60 coffee brewer.",
+      "V60 filter paper.",
       "An eletronic scale.",
-      "Two spoons."
+      "A tea spoon."
     ],
     "steps": [
       {

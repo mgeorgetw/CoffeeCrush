@@ -13,10 +13,10 @@ export const StepsList = ({
     <>
       <div className={styles.scrollable}>
         <h4 className={styles.heading}>Steps</h4>
-        <ul className="item-lists">
+        <ul className={styles.list}>
           {!isRunning ? (
             steps.map((step, index) => (
-              <li className="list-item" key={index}>
+              <li className={styles.listItem} key={index}>
                 <span className={styles.timeGuide}>
                   {step.duration} second{step.duration > 1 ? "s" : ""}
                 </span>
@@ -32,14 +32,14 @@ export const StepsList = ({
             ))
           ) : (
             <>
-              <li className="list-item">
+              <li className={styles.listItem}>
                 <span className={styles.timeGuide}>Do</span>
                 <span className={styles.activeText}>
                   {steps[currentStep - 1].instruction}
                 </span>
               </li>
               {steps[currentStep] && (
-                <li className="list-item">
+                <li className={styles.listItem}>
                   <span className={styles.timeGuide}>Next Up</span>
                   <span className={styles.instruction}>
                     {steps[currentStep].instruction}
