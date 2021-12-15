@@ -11,7 +11,7 @@
       "A Hario V60 coffee brewer.",
       "V60 filter paper.",
       "An eletronic scale.",
-      "A tea spoon."
+      "A teaspoon."
     ],
     "steps": [
       {
@@ -56,7 +56,11 @@
     "defaultWaterInMl": 500,
     "waterTemperature": "100℃",
     "ratio": 16.66,
-    "tools": ["A french press brewer.", "An eletronic scale.", "Two spoons."],
+    "tools": [
+      "A french press brewer.",
+      "An eletronic scale.",
+      "Two table spoons."
+    ],
     "steps": [
       {
         "type": "pour",
@@ -67,13 +71,18 @@
       { "type": "wait", "duration": 240, "instruction": "Wait 4 minutes." },
       {
         "type": "stir",
-        "duration": 15,
-        "instruction": "Use spoons to stir floating crusts and discard what remains floating."
+        "duration": 20,
+        "instruction": "Use spoons to stir the crust and discard what remains floating."
       },
       {
         "type": "wait",
         "duration": 300,
         "instruction": "Wait at least 5 minutes."
+      },
+      {
+        "type": "press",
+        "duration": 10,
+        "instruction": "Put the plunger in, not all the way, but just until it's sitting on the surface of coffee."
       },
       { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
@@ -90,7 +99,7 @@
       "A Hario V60 coffee brewer.",
       "V60 filter paper.",
       "An eletronic scale.",
-      "A tea spoon."
+      "A teaspoon."
     ],
     "steps": [
       {
