@@ -62,11 +62,7 @@ export const InstructionView = ({
       />
       <div className={styles.flexLayout}>
         <div className={styles.upAndLeft}>
-          <Stopwatch
-            time={time}
-            isRunning={isRunning}
-            setIsRunning={setIsRunning}
-          />
+          <Stopwatch time={time} />
           <DonutProgressChart
             time={time}
             steps={calculatedSteps}

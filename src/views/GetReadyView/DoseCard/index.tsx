@@ -1,46 +1,47 @@
 import React from "react";
+import { TypeBrewMethod } from "../../../types/TypeBrewMethod";
 import { Card } from "../../../elements/Card";
 import { beanWaterCalculator } from "../../../utils/math";
 import styles from "./DoseCard.module.css";
 
 export const DoseCard = ({
-  ratio,
-  grindSize,
+  methodDetails,
   beanWeight,
   water,
   setBeanWeight,
   setWater,
 }: {
-  grindSize: string;
-  ratio: number;
+  methodDetails: TypeBrewMethod;
   beanWeight: number;
   water: number;
   setBeanWeight: Function;
   setWater: Function;
 }) => {
-  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const coffeeInGram = event.target.value;
-    const result = beanWaterCalculator({
-      bean: Number(coffeeInGram),
-      ratio: ratio,
-    });
-    setBeanWeight(coffeeInGram);
-    setWater(result.finalAmount);
+  const ratio = methodDetails.ratio;
+  const grindSize = methodDetails.grindSize;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    if (event.target.id === "ground_coffee") {
+      const result = beanWaterCalculator({ bean: Number(value), ratio: ratio });
+      setBeanWeight(value);
+      setWater(result.waterVolume);
+    } else {
+      const result = beanWaterCalculator({
+        water: Number(value),
+        ratio: ratio,
+      });
+      setBeanWeight(result.beanWeight);
+      setWater(value);
+    }
   };
-  const handleWaterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const water = event.target.value;
-    const result = beanWaterCalculator({
-      water: Number(water),
-      ratio: ratio,
-    });
-    setBeanWeight(result.calcBean);
-    setWater(water);
-  };
+
   return (
     <Card>
       <div id="dose-section">
         <h2 className="heading">Decide on dose</h2>
-        <div className="centerSpacedFlexContainer">
+
+        <div className="centerd-and-spaced-container">
           <div className={styles.formWrapper}>
             <div className={styles.formInCircle}>{grindSize}</div>
             <label className={styles.formLabel}>Grind Size</label>
@@ -54,12 +55,13 @@ export const DoseCard = ({
                 name="ground_coffee"
                 id="ground_coffee"
                 value={Math.round(beanWeight)}
-                onChange={handleWeightChange}
+                onChange={handleChange}
               />{" "}
               g
             </div>
             <label className={styles.formLabel}>Ground Coffee</label>
           </div>
+
           <div className={styles.formWrapper}>
             <div className={styles.formInCircle}>
               <input
@@ -68,7 +70,7 @@ export const DoseCard = ({
                 name="water"
                 id="water"
                 value={Math.round(water)}
-                onChange={handleWaterChange}
+                onChange={handleChange}
               />{" "}
               ml
             </div>

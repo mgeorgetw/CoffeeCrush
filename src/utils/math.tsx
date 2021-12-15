@@ -7,7 +7,7 @@ export function beanWaterCalculator({
   water?: number;
   ratio: number;
 }) {
-  const calcBean = bean ? bean : water! / ratio;
-  const finalAmount = water ? water : bean! * ratio;
-  return { calcBean, finalAmount };
+  const beanWeight = bean ? bean : water! / ratio;
+  const waterVolume = water ? water : bean! * ratio;
+  return { beanWeight, waterVolume };
 }

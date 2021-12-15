@@ -15,15 +15,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="app-title">Coffee Crush</h1>
-      </header>
+      <h1 className="app-title">Coffee Crush</h1>
 
       <GetReadyView
         method={method}
         setMethod={setMethod}
-        isReady={isReady}
-        setIsReady={setIsReady}
         chosenMethodDetails={chosenMethodDetails!}
         beanWeight={beanWeight}
         setBeanWeight={setBeanWeight}
@@ -37,6 +33,9 @@ function App() {
         isReady={isReady}
         setIsReady={setIsReady}
       />
+      <button className="prime_button" onClick={() => setIsReady(true)}>
+        I'm ready
+      </button>
     </div>
   );
 }
