@@ -27,7 +27,7 @@ export const InstructionView = ({
   const calculatedSteps = methodDetails.steps.map((step) => {
     return {
       ...step,
-      volume: step.volume! * water,
+      fractionOfWater: step.fractionOfWater! * water,
       instruction: step.instruction.replace(
         /\{(\d\.?\d{0,})\}/g,
         ($0: string, $1: string) => Math.round(+$1 * water).toString()

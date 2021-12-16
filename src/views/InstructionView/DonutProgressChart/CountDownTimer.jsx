@@ -11,7 +11,10 @@ export const CountDownTimer = ({
   const displayText = useMemo(() => {
     const currentData = data[currentStep - 1];
     if (currentData.type === "pour") {
-      return [currentData.type + " to", `${Math.round(currentData.volume)}ml`];
+      return [
+        currentData.type + " to",
+        `${Math.round(currentData.fractionOfWater)}ml`,
+      ];
     } else {
       return [currentData.type, `${untilNextStep}sec`];
     }

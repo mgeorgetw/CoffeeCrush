@@ -1,6 +1,6 @@
 export interface Steps {
   type: string;
-  volume?: number;
+  fractionOfWater?: number;
   duration: number;
   instruction: string;
 }
