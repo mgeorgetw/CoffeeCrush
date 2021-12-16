@@ -16,7 +16,7 @@
     "steps": [
       {
         "type": "pour",
-        "volume": 60,
+        "volume": 0.12,
         "duration": 10,
         "instruction": "Pour {0.12} ml of water and wait to bloom."
       },
@@ -28,18 +28,74 @@
       { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
       {
         "type": "pour",
-        "volume": 240,
+        "volume": 0.6,
         "duration": 30,
         "instruction": "Pour water until {0.6} ml."
       },
       { "type": "wait", "duration": 5, "instruction": "Wait 5 seconds." },
       {
         "type": "pour",
-        "volume": 200,
+        "volume": 1,
         "duration": 30,
         "instruction": "Keep pouring water until {1} ml."
       },
       { "type": "stir", "duration": 5, "instruction": "Stir for 5 seconds." },
+      {
+        "type": "wait",
+        "duration": 20,
+        "instruction": "Wait for the drawdown."
+      },
+      { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+    ]
+  },
+  {
+    "method": "Tetsu Kasuya V60",
+    "learn": "https://youtu.be/wmCW8xSWGZY",
+    "grindSize": "Coarse",
+    "defaultCoffeeInGram": 20,
+    "defaultWaterInMl": 300,
+    "waterTemperature": "100℃",
+    "ratio": 15,
+    "tools": [
+      "A Hario V60 coffee brewer.",
+      "V60 filter paper.",
+      "An eletronic scale."
+    ],
+    "steps": [
+      {
+        "type": "pour",
+        "volume": 0.2,
+        "duration": 10,
+        "instruction": "Pour {0.2} ml of water. (Adjustable: {0.17} ml for more sweetness; {0.23} ml offers more acidity)."
+      },
+      { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
+      {
+        "type": "pour",
+        "volume": 0.4,
+        "duration": 10,
+        "instruction": "Pour water until {0.4} ml."
+      },
+      { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
+      {
+        "type": "pour",
+        "volume": 0.6,
+        "duration": 10,
+        "instruction": "Pour until {0.6} ml."
+      },
+      { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
+      {
+        "type": "pour",
+        "volume": 0.8,
+        "duration": 10,
+        "instruction": "Pour until {0.8} ml."
+      },
+      { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
+      {
+        "type": "pour",
+        "volume": 1,
+        "duration": 10,
+        "instruction": "Finish the pour at {1} ml."
+      },
       {
         "type": "wait",
         "duration": 20,
@@ -64,7 +120,7 @@
     "steps": [
       {
         "type": "pour",
-        "volume": 500,
+        "volume": 1,
         "duration": 10,
         "instruction": "Pour {1} ml of water."
       },
@@ -104,13 +160,13 @@
     "steps": [
       {
         "type": "pour",
-        "volume": 200,
+        "volume": 0.4,
         "duration": 10,
         "instruction": "Start with {0.4} g of ice in the decanter."
       },
       {
         "type": "pour",
-        "volume": 60,
+        "volume": 0.52,
         "duration": 10,
         "instruction": "Pour water until {0.52} ml."
       },
@@ -127,7 +183,7 @@
       { "type": "stir", "duration": 5, "instruction": "Stir for 5 seconds." },
       {
         "type": "pour",
-        "volume": 240,
+        "volume": 1,
         "duration": 150,
         "instruction": "Slowly pour water until {1} ml."
       },

@@ -22,14 +22,19 @@ export const GetReadyView = ({
   water: number;
   setWater: Function;
 }) => {
+  const handleRadioButtonChange = (item: TypeBrewMethod) => {
+    setMethod(item.method);
+    setBeanWeight(item.defaultCoffeeInGram);
+    setWater(item.defaultWaterInMl);
+  };
   return (
     <>
       <CardContainer>
         <Card>
           <h2 className="heading">Choose a brew method</h2>
           <div className="centerd-and-spaced-container">
-            {brewMethods.map((item, index) =>
-              RadioButton(index, item.method, item.method, method, setMethod)
+            {brewMethods.map((item) =>
+              RadioButton(item, method, handleRadioButtonChange)
             )}
           </div>
         </Card>

@@ -11,7 +11,7 @@ export const CountDownTimer = ({
   const displayText = useMemo(() => {
     const currentData = data[currentStep - 1];
     if (currentData.type === "pour") {
-      return [currentData.type, `${currentData.volume}ml`];
+      return [currentData.type + " to", `${currentData.volume}ml`];
     } else {
       return [currentData.type, `${untilNextStep}sec`];
     }

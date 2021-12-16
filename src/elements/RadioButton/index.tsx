@@ -1,23 +1,24 @@
+import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import styles from "./RadioButton.module.css";
 export const RadioButton = (
-  key: number,
-  item: string,
-  label: string,
+  item: TypeBrewMethod,
   selected: string,
   handleChange: Function
-) => (
-  <div className={styles.btnContainer} key={key}>
-    <input
-      className={styles.hiddenInput}
-      id={item}
-      type="radio"
-      onChange={() => handleChange(item)}
-      checked={item === selected}
-    />
-    <div className={styles.roundToggleButton}>
-      <label className={styles.btnLabel} htmlFor={item}>
-        {label}
-      </label>
+) => {
+  return (
+    <div className={styles.btnContainer} key={item.method}>
+      <input
+        className={styles.hiddenInput}
+        id={item.method}
+        type="radio"
+        onChange={() => handleChange(item)}
+        checked={item.method === selected}
+      />
+      <div className={styles.roundToggleButton}>
+        <label className={styles.btnLabel} htmlFor={item.method}>
+          {item.method}
+        </label>
+      </div>
     </div>
-  </div>
-);
+  );
+};

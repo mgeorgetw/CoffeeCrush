@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { GetReadyView } from "./views/GetReadyView";
 import { InstructionView } from "./views/InstructionView";
 import brewMethods from "./data/BrewMethods.json";
@@ -7,7 +7,10 @@ import "./App.css";
 function App() {
   const [method, setMethod] = useState("The Ultimate V60");
   const [isReady, setIsReady] = useState<boolean>(false);
-  const chosenMethodDetails = brewMethods.find((obj) => obj.method === method);
+  const chosenMethodDetails = useMemo(
+    () => brewMethods.find((obj) => obj.method === method),
+    [method]
+  );
   const [beanWeight, setBeanWeight] = useState(
     chosenMethodDetails!.defaultCoffeeInGram
   );
