@@ -32,7 +32,7 @@ export const GetReadyView = ({
       <CardContainer>
         <Card>
           <h2 className="heading">Choose a brew method</h2>
-          <div className="centerd-and-spaced-container">
+          <div className="spaced-container">
             {brewMethods.map((item) =>
               RadioButton(item, method, handleRadioButtonChange)
             )}

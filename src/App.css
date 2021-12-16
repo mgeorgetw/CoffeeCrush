@@ -26,10 +26,11 @@ body {
   font-weight: 600;
 }
 
-.centerd-and-spaced-container {
+.spaced-container {
   display: flex;
-  justify-content: center;
-  align-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
   align-items: flex-start;
 }
 

@@ -4,6 +4,8 @@ export const DonutNeedle = ({ pieData, pieArc, colorPie, time }) => {
     let fill;
     if (d.index === time) {
       fill = "goldenrod";
+    } else if (d.index < time) {
+      fill = "darkgoldenrod";
     } else {
       fill = "none";
     }

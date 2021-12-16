@@ -41,7 +41,7 @@ export const DoseCard = ({
       <div id="dose-section">
         <h2 className="heading">Decide on dose</h2>
 
-        <div className="centerd-and-spaced-container">
+        <div className="spaced-container">
           <div className={styles.formWrapper}>
             <div className={styles.formInCircle}>{grindSize}</div>
             <label className={styles.formLabel}>Grind Size</label>
