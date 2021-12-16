@@ -33,9 +33,9 @@
     flex-direction: row;
   }
   .upAndLeft {
-    flex: 1 0 50%;
+    flex: 1;
   }
   .bottomAndRight {
-    flex: 1 0 50%;
+    flex: 1;
   }
 }
