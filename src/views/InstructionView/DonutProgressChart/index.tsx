@@ -31,7 +31,6 @@ export const DonutProgressChart = ({
     if (stepsLeft > 0 && untilNextStep === 1) {
       // Typescript requires '.default'
       audioRef.current.src = bellAudioClip.default;
-      audioRef.current.play();
     }
   }, [stepsLeft, audioRef, untilNextStep]);
   return (
