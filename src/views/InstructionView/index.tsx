@@ -24,16 +24,14 @@ export const InstructionView = ({
   );
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
-  const calculatedSteps = methodDetails.steps.map((step) => {
-    return {
-      ...step,
-      fractionOfWater: step.fractionOfWater! * water,
-      instruction: step.instruction.replace(
-        /\{(\d\.?\d{0,})\}/g,
-        ($0: string, $1: string) => Math.round(+$1 * water).toString()
-      ),
-    };
-  });
+  const calculatedSteps = methodDetails.steps.map((step) => ({
+    ...step,
+    fractionOfWater: step.fractionOfWater! * water,
+    instruction: step.instruction.replace(
+      /\{(\d\.?\d{0,})\}/g,
+      ($0: string, $1: string) => Math.round(+$1 * water).toString()
+    ),
+  }));
 
   const stepsLeft = calculatedSteps.length - currentStep;
 
