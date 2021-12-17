@@ -3,8 +3,8 @@ import { Steps } from "../../../types/TypeBrewMethod";
 import { DonutProgressContainer } from "./DonutProgressContainer";
 
 // Typescript does not seem to support 'import' of audio files.
-const bellAudioClip = require("../../../assets/bell.mp3");
-const startAudioClip = require("../../../assets/start.mp3");
+const bellAudio = require("../../../assets/bell.mp3");
+const buttonClickedAudio = require("../../../assets/start.mp3");
 
 export const DonutProgressChart = ({
   time,
@@ -30,7 +30,7 @@ export const DonutProgressChart = ({
   useEffect(() => {
     if (stepsLeft > 0 && untilNextStep === 1) {
       // Typescript requires '.default'
-      audioRef.current.src = bellAudioClip.default;
+      audioRef.current.src = bellAudio.default;
     }
   }, [stepsLeft, audioRef, untilNextStep]);
   return (
@@ -39,7 +39,7 @@ export const DonutProgressChart = ({
       onClick={() => {
         isRunning ? setIsRunning(false) : setIsRunning(true);
         // Audio needs to be initiated by user interaction.
-        audioRef.current.src = startAudioClip.default;
+        audioRef.current.src = buttonClickedAudio.default;
       }}
     >
       <DonutProgressContainer
