@@ -6,15 +6,16 @@ export const CountDownTimer = ({
   currentStep,
   isRunning,
   untilNextStep,
-  pieRadius,
 }) => {
   const displayText = useMemo(() => {
     const currentData = data[currentStep - 1];
     if (currentData.type === "pour") {
       return [
-        currentData.type + " to",
+        `${currentData.type} to`,
         `${Math.round(currentData.fractionOfWater)}ml`,
       ];
+    } else if (currentData.type === "end") {
+      return [`Push &`, `Done`];
     } else {
       return [currentData.type, `${untilNextStep}sec`];
     }
@@ -24,12 +25,10 @@ export const CountDownTimer = ({
     <text
       className={`${styles.countDownTimer}`}
       textAnchor="middle"
-      x={pieRadius}
-      y={pieRadius}
       dy="-0.17em"
     >
-      <tspan>{isRunning ? displayText[0] : "Push"}</tspan>
-      <tspan x={pieRadius} dy="1em">
+      <tspan>{isRunning ? displayText[0] : "Push &"}</tspan>
+      <tspan x={0} dy="1em">
         {isRunning ? displayText[1] : "Start"}
       </tspan>
     </text>

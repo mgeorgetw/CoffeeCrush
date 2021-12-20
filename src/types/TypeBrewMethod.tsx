@@ -6,7 +6,7 @@ export interface Steps {
 }
 
 export interface TypeBrewMethod {
-  method: string;
+  name: string;
   learn: string;
   grindSize: string;
   defaultCoffeeInGram: number;

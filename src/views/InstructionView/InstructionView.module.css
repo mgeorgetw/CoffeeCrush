@@ -18,7 +18,7 @@
   height: 0;
 }
 
-.flexLayout {
+.flexDirectionSwichContainer {
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -29,7 +29,7 @@
 }
 
 @media all and (min-width: 720px) {
-  .flexLayout {
+  .flexDirectionSwichContainer {
     flex-direction: row;
   }
   .upAndLeft {

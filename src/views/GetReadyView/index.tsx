@@ -23,7 +23,7 @@ export const GetReadyView = ({
   setWater: Function;
 }) => {
   const handleRadioButtonChange = (item: TypeBrewMethod) => {
-    setMethod(item.method);
+    setMethod(item.name);
     setBeanWeight(item.defaultCoffeeInGram);
     setWater(item.defaultWaterInMl);
   };

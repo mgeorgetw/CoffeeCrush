@@ -8,7 +8,7 @@ function App() {
   const [method, setMethod] = useState("The Ultimate V60");
   const [isReady, setIsReady] = useState<boolean>(false);
   const chosenMethodDetails = useMemo(
-    () => brewMethods.find((obj) => obj.method === method),
+    () => brewMethods.find((obj) => obj.name === method),
     [method]
   );
   const [beanWeight, setBeanWeight] = useState(
@@ -36,7 +36,8 @@ function App() {
         isReady={isReady}
         setIsReady={setIsReady}
       />
-      <button className="prime_button" onClick={() => setIsReady(true)}>
+
+      <button className="prime-button" onClick={() => setIsReady(true)}>
         I'm ready
       </button>
     </div>

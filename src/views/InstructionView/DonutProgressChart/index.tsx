@@ -28,6 +28,7 @@ export const DonutProgressChart = ({
   audioRef.current.autoplay = true;
 
   useEffect(() => {
+    // Play alert sound while step changes
     if (stepsLeft > 0 && untilNextStep === 1) {
       // Typescript requires '.default'
       audioRef.current.src = bellAudio.default;

@@ -6,17 +6,17 @@ export const RadioButton = (
   handleChange: Function
 ) => {
   return (
-    <div className={styles.btnContainer} key={item.method}>
+    <div className={styles.btnContainer} key={item.name}>
       <input
         className={styles.hiddenInput}
-        id={item.method}
+        id={item.name}
         type="radio"
         onChange={() => handleChange(item)}
-        checked={item.method === selected}
+        checked={item.name === selected}
       />
       <div className={styles.roundToggleButton}>
-        <label className={styles.btnLabel} htmlFor={item.method}>
-          {item.method}
+        <label className={styles.btnLabel} htmlFor={item.name}>
+          {item.name}
         </label>
       </div>
     </div>

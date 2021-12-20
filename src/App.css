@@ -33,7 +33,7 @@ body {
   align-items: flex-start;
 }
 
-.prime_button {
+.prime-button {
   background-color: #3a3a3c;
   font-variant: small-caps;
   letter-spacing: 1px;
@@ -48,7 +48,7 @@ body {
   border-radius: 10px;
 }
 
-.prime_button:hover {
+.prime-button:hover {
   color: goldenrod;
   border: 5px solid goldenrod;
   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;

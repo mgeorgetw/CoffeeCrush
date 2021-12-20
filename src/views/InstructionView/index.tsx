@@ -35,33 +35,37 @@ export const InstructionView = ({
 
   const stepsLeft = calculatedSteps.length - currentStep;
 
+  const resetAll = () => {
+    setIsReady(false);
+    setIsRunning(false);
+    setTime(0);
+    setCurrentStep(1);
+    setUntilNextStep(methodDetails.steps[0].duration);
+  };
+
   useEffect(() => {
+    if (!isRunning) return;
+
     let interval: number = 0;
-    if (isRunning) {
-      interval = window.setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-        if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
-        if (stepsLeft > 0 && untilNextStep === 1) {
-          setCurrentStep((prevOrder) => prevOrder + 1);
-          setUntilNextStep(calculatedSteps[currentStep].duration);
-        }
-      }, 1000);
-    }
+    interval = window.setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+      if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
+      if (stepsLeft > 0 && untilNextStep === 1) {
+        setCurrentStep((prevStep) => prevStep + 1);
+        setUntilNextStep(calculatedSteps[currentStep].duration);
+      }
+    }, 1000);
+
     return () => clearInterval(interval);
   }, [isRunning, untilNextStep, currentStep, calculatedSteps, stepsLeft]);
   return (
     <div className={`${styles.slider} ${!isReady && styles.close}`}>
-      <Navigation
-        methodDetails={methodDetails}
-        setIsReady={setIsReady}
-        setIsRunning={setIsRunning}
-        setTime={setTime}
-        setCurrentStep={setCurrentStep}
-        setUntilNextStep={setUntilNextStep}
-      />
-      <div className={styles.flexLayout}>
+      <Navigation methodDetails={methodDetails} onClose={resetAll} />
+
+      <div className={styles.flexDirectionSwichContainer}>
         <div className={styles.upAndLeft}>
           <Stopwatch time={time} />
+
           <DonutProgressChart
             time={time}
             steps={calculatedSteps}
@@ -72,6 +76,7 @@ export const InstructionView = ({
             setIsRunning={setIsRunning}
           />
         </div>
+
         <div className={styles.bottomAndRight}>
           <StepsList
             isRunning={isRunning}

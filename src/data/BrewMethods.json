@@ -1,6 +1,6 @@
 [
   {
-    "method": "The Ultimate V60",
+    "name": "The Ultimate V60",
     "learn": "https://youtu.be/AI4ynXzkSQo",
     "grindSize": "Medium",
     "defaultCoffeeInGram": 30,
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "method": "Tetsu Kasuya V60",
+    "name": "Tetsu Kasuya V60",
     "learn": "https://youtu.be/wmCW8xSWGZY",
     "grindSize": "Coarse",
     "defaultCoffeeInGram": 20,
@@ -105,7 +105,7 @@
     ]
   },
   {
-    "method": "French Press",
+    "name": "French Press",
     "learn": "https://youtu.be/st571DYYTR8",
     "grindSize": "Medium",
     "defaultCoffeeInGram": 30,
@@ -144,7 +144,7 @@
     ]
   },
   {
-    "method": "Iced filter coffee",
+    "name": "Iced filter coffee",
     "learn": "https://youtu.be/PApBycDrPo0",
     "grindSize": "Fine",
     "defaultCoffeeInGram": 35,

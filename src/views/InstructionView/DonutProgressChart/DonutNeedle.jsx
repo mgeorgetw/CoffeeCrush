@@ -1,6 +1,6 @@
 import styles from "./DonutProgress.module.css";
-export const DonutNeedle = ({ pieData, pieArc, colorPie, time }) => {
-  return colorPie(pieData).map((d) => {
+export const DonutNeedle = ({ pieData, pieArc, pie, time }) =>
+  pie(pieData).map((d) => {
     let fill;
     if (d.index === time) {
       fill = "goldenrod";
@@ -15,4 +15,3 @@ export const DonutNeedle = ({ pieData, pieArc, colorPie, time }) => {
       </g>
     );
   });
-};
