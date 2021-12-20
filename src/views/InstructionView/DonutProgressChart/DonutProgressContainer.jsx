@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { arc, pie } from "d3";
 import { DonutChart } from "./DonutChart";
 import { DonutNeedle } from "./DonutNeedle";
-import { CountDownTimer } from "./CountDownTimer";
+import { TextDisplay } from "./TextDisplay";
 import styles from "./DonutProgress.module.css";
 
 const svgDiameter =
@@ -63,7 +63,7 @@ export const DonutProgressContainer = ({
         />
         <DonutChart pieData={data} pie={dataPie} pieArc={pieArc} />
         <ClickableCircle />
-        <CountDownTimer
+        <TextDisplay
           data={data}
           currentStep={currentStep}
           untilNextStep={untilNextStep}
