@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/CoffeeCrush/static/css/main.81c2a252.chunk.css",
-    "main.js": "/CoffeeCrush/static/js/main.987b7e0c.chunk.js",
-    "main.js.map": "/CoffeeCrush/static/js/main.987b7e0c.chunk.js.map",
+    "main.css": "/CoffeeCrush/static/css/main.1bc755df.chunk.css",
+    "main.js": "/CoffeeCrush/static/js/main.1309c59c.chunk.js",
+    "main.js.map": "/CoffeeCrush/static/js/main.1309c59c.chunk.js.map",
     "runtime-main.js": "/CoffeeCrush/static/js/runtime-main.59a326b2.js",
     "runtime-main.js.map": "/CoffeeCrush/static/js/runtime-main.59a326b2.js.map",
     "static/js/2.ef12053e.chunk.js": "/CoffeeCrush/static/js/2.ef12053e.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.6ef5fdb6.chunk.js": "/CoffeeCrush/static/js/3.6ef5fdb6.chunk.js",
     "static/js/3.6ef5fdb6.chunk.js.map": "/CoffeeCrush/static/js/3.6ef5fdb6.chunk.js.map",
     "index.html": "/CoffeeCrush/index.html",
-    "static/css/main.81c2a252.chunk.css.map": "/CoffeeCrush/static/css/main.81c2a252.chunk.css.map",
+    "static/css/main.1bc755df.chunk.css.map": "/CoffeeCrush/static/css/main.1bc755df.chunk.css.map",
     "static/js/2.ef12053e.chunk.js.LICENSE.txt": "/CoffeeCrush/static/js/2.ef12053e.chunk.js.LICENSE.txt",
     "static/media/bell.mp3": "/CoffeeCrush/static/media/bell.e775700b.mp3",
     "static/media/start.mp3": "/CoffeeCrush/static/media/start.c5edceb4.mp3"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.59a326b2.js",
     "static/js/2.ef12053e.chunk.js",
-    "static/css/main.81c2a252.chunk.css",
-    "static/js/main.987b7e0c.chunk.js"
+    "static/css/main.1bc755df.chunk.css",
+    "static/js/main.1309c59c.chunk.js"
   ]
 }
