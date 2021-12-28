@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import { Navigation } from "./Navigation";
-import { DonutProgressChart } from "./DonutProgressChart";
+import { ProgressDonutChartButton } from "./ProgressDonutChartButton";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
 import styles from "./InstructionView.module.css";
@@ -66,7 +66,7 @@ export const InstructionView = ({
         <div className={styles.upAndLeft}>
           <Stopwatch time={time} />
 
-          <DonutProgressChart
+          <ProgressDonutChartButton
             time={time}
             steps={calculatedSteps}
             currentStep={currentStep}

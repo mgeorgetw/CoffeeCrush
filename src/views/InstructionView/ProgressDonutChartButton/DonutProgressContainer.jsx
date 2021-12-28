@@ -44,7 +44,7 @@ export const DonutProgressContainer = ({
     [data]
   );
 
-  let needleData = [];
+  const needleData = [];
   for (let i = 0; i <= totalDuration; i++) {
     needleData.push({ step: 1 });
   }

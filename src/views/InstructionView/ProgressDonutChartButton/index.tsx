@@ -6,7 +6,7 @@ import { DonutProgressContainer } from "./DonutProgressContainer";
 const bellAudio = require("../../../assets/bell.mp3");
 const buttonClickedAudio = require("../../../assets/start.mp3");
 
-export const DonutProgressChart = ({
+export const ProgressDonutChartButton = ({
   time,
   steps,
   currentStep,
