@@ -23,6 +23,7 @@ export const InstructionView = ({
     methodDetails.steps[0].duration
   );
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [addedWater, setAddedWater] = useState<number>(0);
 
   const calculatedSteps = methodDetails.steps.map((step) => ({
     ...step,
@@ -41,7 +42,22 @@ export const InstructionView = ({
     setTime(0);
     setCurrentStep(1);
     setUntilNextStep(methodDetails.steps[0].duration);
+    setAddedWater(0);
   };
+
+  const waterForCurrentStep = calculatedSteps[currentStep - 1].fractionOfWater;
+
+  const FractionIndicator = ({
+    fraction,
+    total,
+    unit,
+  }: {
+    fraction: number;
+    total: number;
+    unit: string;
+  }) => (
+    <div className={styles.largeDigit}>{`${fraction}/${total}${unit}`}</div>
+  );
 
   useEffect(() => {
     if (!isRunning) return;
@@ -53,11 +69,19 @@ export const InstructionView = ({
       if (stepsLeft > 0 && untilNextStep === 1) {
         setCurrentStep((prevStep) => prevStep + 1);
         setUntilNextStep(calculatedSteps[currentStep].duration);
+        waterForCurrentStep && setAddedWater(waterForCurrentStep);
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isRunning, untilNextStep, currentStep, calculatedSteps, stepsLeft]);
+  }, [
+    isRunning,
+    untilNextStep,
+    currentStep,
+    calculatedSteps,
+    stepsLeft,
+    waterForCurrentStep,
+  ]);
   return (
     <div className={`${styles.slider} ${!isReady && styles.close}`}>
       <Navigation methodDetails={methodDetails} onClose={resetAll} />
@@ -78,6 +102,8 @@ export const InstructionView = ({
         </div>
 
         <div className={styles.bottomAndRight}>
+          <FractionIndicator fraction={addedWater} total={water} unit="ml" />
+
           <StepsList
             isRunning={isRunning}
             steps={calculatedSteps}

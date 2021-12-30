@@ -39,3 +39,11 @@
     flex: 1;
   }
 }
+
+.largeDigit {
+  margin: 0.8rem;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: 200;
+  color: steelblue;
+}

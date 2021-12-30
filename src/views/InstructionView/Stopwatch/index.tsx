@@ -4,7 +4,7 @@ export const Stopwatch = ({ time }: { time: number }) => {
   const seconds = ("0" + Math.floor(time % 60)).toString().slice(-2);
   return (
     <div id="stopwatch">
-      <div className={`${styles.clock}`}>
+      <div className={styles.clock}>
         <span>{minutes}:</span>
         <span>{seconds}</span>
       </div>

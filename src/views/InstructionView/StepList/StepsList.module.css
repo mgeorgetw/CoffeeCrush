@@ -1,5 +1,5 @@
 .scrollable {
-  margin: 2em;
+  margin: 0em 2em;
   background-color: darkslategray;
   scroll-behavior: smooth;
   overflow-x: hidden;
