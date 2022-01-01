@@ -11,3 +11,7 @@ export function beanWaterCalculator({
   const waterVolume = water ? water : bean! * ratio;
   return { beanWeight, waterVolume };
 }
+
+export function roundToInteger(input: number) {
+  return Math.round(input).toString();
+}

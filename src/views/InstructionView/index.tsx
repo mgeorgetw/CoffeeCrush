@@ -5,6 +5,7 @@ import { ProgressDonutChartButton } from "./ProgressDonutChartButton";
 import { StepsList } from "./StepList";
 import { Stopwatch } from "./Stopwatch";
 import styles from "./InstructionView.module.css";
+import { roundToInteger } from "../../utils/math";
 
 export const InstructionView = ({
   methodDetails,
@@ -30,7 +31,7 @@ export const InstructionView = ({
     fractionOfWater: step.fractionOfWater! * water,
     instruction: step.instruction.replace(
       /\{(\d\.?\d{0,})\}/g,
-      ($0: string, $1: string) => Math.round(+$1 * water).toString()
+      ($0: string, $1: string) => roundToInteger(+$1 * water)
     ),
   }));
 
@@ -56,7 +57,9 @@ export const InstructionView = ({
     total: number;
     unit: string;
   }) => (
-    <div className={styles.largeDigit}>{`${fraction}/${total}${unit}`}</div>
+    <div className={styles.largeDigit}>{`${roundToInteger(
+      fraction
+    )}/${roundToInteger(total)}${unit}`}</div>
   );
 
   useEffect(() => {

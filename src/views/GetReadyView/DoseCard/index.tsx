@@ -2,6 +2,7 @@ import React from "react";
 import { TypeBrewMethod } from "../../../types/TypeBrewMethod";
 import { Card } from "../../../elements/Card";
 import { beanWaterCalculator } from "../../../utils/math";
+import { roundToInteger } from "../../../utils/math";
 import styles from "./DoseCard.module.css";
 
 export const DoseCard = ({
@@ -54,7 +55,7 @@ export const DoseCard = ({
                 type="number"
                 name="ground_coffee"
                 id="ground_coffee"
-                value={Math.round(beanWeight)}
+                value={roundToInteger(beanWeight)}
                 onChange={handleChange}
               />{" "}
               g
@@ -69,7 +70,7 @@ export const DoseCard = ({
                 type="number"
                 name="water"
                 id="water"
-                value={Math.round(water)}
+                value={roundToInteger(water)}
                 onChange={handleChange}
               />{" "}
               ml

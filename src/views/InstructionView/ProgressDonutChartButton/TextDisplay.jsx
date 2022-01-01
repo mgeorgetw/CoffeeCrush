@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Text } from "@visx/text";
 import styles from "./DonutProgress.module.css";
+import { roundToInteger } from "../../../utils/math";
 
 export const TextDisplay = ({
   data,
@@ -12,7 +13,7 @@ export const TextDisplay = ({
     const currentData = data[currentStep - 1];
     if (!isRunning) return "Push & Start";
     if (currentData.type === "pour") {
-      return `Pour until ${Math.round(currentData.fractionOfWater)}ml`;
+      return `Pour until ${roundToInteger(currentData.fractionOfWater)}ml`;
     } else if (currentData.type === "end") {
       return `Push & Done`;
     } else {
