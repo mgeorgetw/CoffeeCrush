@@ -1,7 +1,7 @@
 import React from "react";
 import { TypeBrewMethod } from "../../../types/TypeBrewMethod";
 import { Card } from "../../../elements/Card";
-import { beanWaterCalculator } from "../../../utils/math";
+import { getBeanWeightAndBrewWaterVolume } from "../../../utils/math";
 import { roundToInteger } from "../../../utils/math";
 import styles from "./DoseCard.module.css";
 
@@ -24,11 +24,14 @@ export const DoseCard = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     if (event.target.id === "ground_coffee") {
-      const result = beanWaterCalculator({ bean: Number(value), ratio: ratio });
+      const result = getBeanWeightAndBrewWaterVolume({
+        bean: Number(value),
+        ratio: ratio,
+      });
       setBeanWeight(value);
       setWater(result.waterVolume);
     } else {
-      const result = beanWaterCalculator({
+      const result = getBeanWeightAndBrewWaterVolume({
         water: Number(value),
         ratio: ratio,
       });

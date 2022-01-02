@@ -1,4 +1,4 @@
-export function beanWaterCalculator({
+export function getBeanWeightAndBrewWaterVolume({
   bean,
   water,
   ratio,
