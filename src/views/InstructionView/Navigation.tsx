@@ -9,12 +9,12 @@ export const Navigation = ({
   onClose: MouseEventHandler;
 }) => (
   <div className={styles.navigation}>
-    <h3 className={styles.title}>{methodDetails.name}</h3>
-    <button className={styles.leftButton} onClick={onClose}>
+    <button className={styles.navButton} onClick={onClose}>
       Close
     </button>
+    <h3 className={styles.title}>{methodDetails.name}</h3>
     <a
-      className={styles.linkButton}
+      className={styles.navButton}
       href={methodDetails.learn}
       target="_blank"
       rel="noreferrer"
