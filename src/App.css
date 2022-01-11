@@ -12,8 +12,8 @@ body {
 .app-title {
   font-size: calc(1rem + 2vmin);
   color: darkgoldenrod;
-  font-variant: small-caps;
-  letter-spacing: 2.6px;
+  font-family: cursive;
+  letter-spacing: 2.3px;
 }
 
 .heading {
