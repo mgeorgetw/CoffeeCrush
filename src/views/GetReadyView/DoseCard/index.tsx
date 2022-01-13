@@ -22,6 +22,7 @@ export const DoseCard = ({
   const methodRef = useRef(methodDetails);
   const animateRef = useRef<HTMLDivElement>(null);
   const selector = gsap.utils.selector(animateRef);
+  const timelineRef = useRef<GSAPTimeline>();
 
   const ratio = methodDetails.ratio;
   const grindSize = methodDetails.grindSize;
@@ -49,13 +50,12 @@ export const DoseCard = ({
   );
 
   useLayoutEffect(() => {
-    methodDetails !== methodRef.current &&
-      gsap
+    if (methodDetails !== methodRef.current)
+      timelineRef.current = gsap
         .timeline()
         .to(selector(".toTilt"), {
           rotation: 25,
           duration: 0.3,
-          ease: "end",
         })
         .to(selector(".toTilt"), {
           rotation: 0,

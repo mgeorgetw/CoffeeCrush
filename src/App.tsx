@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useLayoutEffect, useRef } from "react";
 import { GetReadyView } from "./views/GetReadyView";
 import { InstructionView } from "./views/InstructionView";
 import brewMethods from "./data/BrewMethods.json";
@@ -37,9 +37,11 @@ function App() {
         setIsReady={setIsReady}
       />
 
-      <button className="prime-button" onClick={() => setIsReady(true)}>
-        I'm ready
-      </button>
+      {!isReady && (
+        <button className="prime-button" onClick={() => setIsReady(true)}>
+          Brew
+        </button>
+      )}
     </div>
   );
 }

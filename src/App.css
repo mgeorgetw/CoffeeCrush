@@ -34,22 +34,50 @@ body {
 }
 
 .prime-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  height: 5.5rem;
+  width: 5.5rem;
   background-color: #3a3a3c;
   font-variant: small-caps;
   letter-spacing: 1px;
   font-size: 1em;
   font-weight: bold;
   color: darkgoldenrod;
+  opacity: 0.4;
   cursor: pointer;
   padding: 1rem;
   margin: 0.5rem;
-  border: 5px solid #1c1c1e;
-  box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
-  border-radius: 10px;
+  border: none;
+  border-radius: 100%;
+  user-select: none;
 }
 
 .prime-button:hover {
+  opacity: 1;
   color: goldenrod;
   border: 5px solid goldenrod;
   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a;
 }
+
+/* .prime-button { */
+/*   background-color: #3a3a3c; */
+/*   font-variant: small-caps; */
+/*   letter-spacing: 1px; */
+/*   font-size: 1em; */
+/*   font-weight: bold; */
+/*   color: darkgoldenrod; */
+/*   cursor: pointer; */
+/*   padding: 1rem; */
+/*   margin: 0.5rem; */
+/*   border: 5px solid #1c1c1e; */
+/*   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a; */
+/*   border-radius: 10px; */
+/* } */
+
+/* .prime-button:hover { */
+/*   color: goldenrod; */
+/*   border: 5px solid goldenrod; */
+/*   box-shadow: inset 5px 7px 5px -3px #48484a, inset -3px -2px 4px -3px #48484a; */
+/* } */
