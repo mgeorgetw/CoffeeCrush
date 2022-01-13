@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useLayoutEffect, useCallback } from "react";
+import { gsap } from "gsap";
 import { TypeBrewMethod } from "../../../types/TypeBrewMethod";
 import { Card } from "../../../elements/Card";
 import { getBeanWeightAndBrewWaterVolume } from "../../../utils/math";
@@ -18,41 +19,65 @@ export const DoseCard = ({
   setBeanWeight: Function;
   setWater: Function;
 }) => {
+  const methodRef = useRef(methodDetails);
+  const animateRef = useRef<HTMLDivElement>(null);
+  const selector = gsap.utils.selector(animateRef);
+
   const ratio = methodDetails.ratio;
   const grindSize = methodDetails.grindSize;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    if (event.target.id === "ground_coffee") {
-      const result = getBeanWeightAndBrewWaterVolume({
-        bean: Number(value),
-        ratio: ratio,
-      });
-      setBeanWeight(value);
-      setWater(result.waterVolume);
-    } else {
-      const result = getBeanWeightAndBrewWaterVolume({
-        water: Number(value),
-        ratio: ratio,
-      });
-      setBeanWeight(result.beanWeight);
-      setWater(value);
-    }
-  };
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = Number(event.target.value);
+      if (event.target.id === "ground_coffee") {
+        const result = getBeanWeightAndBrewWaterVolume({
+          bean: value,
+          ratio: ratio,
+        });
+        setBeanWeight(value);
+        setWater(result.waterVolume);
+      } else {
+        const result = getBeanWeightAndBrewWaterVolume({
+          water: value,
+          ratio: ratio,
+        });
+        setBeanWeight(result.beanWeight);
+        setWater(value);
+      }
+    },
+    [ratio, setBeanWeight, setWater]
+  );
+
+  useLayoutEffect(() => {
+    methodDetails !== methodRef.current &&
+      gsap
+        .timeline()
+        .to(selector(".toTilt"), {
+          rotation: 25,
+          duration: 0.3,
+          ease: "end",
+        })
+        .to(selector(".toTilt"), {
+          rotation: 0,
+          duration: 1,
+          ease: "back",
+        });
+    methodRef.current = methodDetails;
+  }, [methodDetails, methodRef, selector]);
 
   return (
     <Card>
       <div id="dose-section">
         <h2 className="heading">Decide on dose</h2>
 
-        <div className="spaced-container">
+        <div ref={animateRef} className="spaced-container">
           <div className={styles.formWrapper}>
-            <div className={styles.formInCircle}>{grindSize}</div>
+            <div className={` ${styles.formInCircle} toTilt`}>{grindSize}</div>
             <label className={styles.formLabel}>Grind Size</label>
           </div>
 
           <div className={styles.formWrapper}>
-            <div className={styles.formInCircle}>
+            <div className={` ${styles.formInCircle} toTilt`}>
               <input
                 className={styles.numberInput}
                 type="number"
@@ -67,7 +92,7 @@ export const DoseCard = ({
           </div>
 
           <div className={styles.formWrapper}>
-            <div className={styles.formInCircle}>
+            <div className={` ${styles.formInCircle} toTilt`}>
               <input
                 className={styles.numberInput}
                 type="number"
