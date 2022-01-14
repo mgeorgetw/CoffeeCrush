@@ -7,9 +7,9 @@ export function getBeanWeightAndBrewWaterVolume({
   water?: number;
   ratio: number;
 }) {
-  const beanWeight = bean ? bean : water! / ratio;
+  const groundCoffee = bean ? bean : water! / ratio;
   const waterVolume = water ? water : bean! * ratio;
-  return { beanWeight, waterVolume };
+  return { groundCoffee, waterVolume };
 }
 
 export function roundToInteger(input: number) {

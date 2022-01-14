@@ -24,13 +24,13 @@ export const FractionIndicator = ({
 export const InstructionView = ({
   methodDetails,
   water,
-  isReady,
-  setIsReady,
+  isBrewing,
+  setIsBrewing,
 }: {
   methodDetails: TypeBrewMethod;
   water: number;
-  isReady: boolean;
-  setIsReady: Function;
+  isBrewing: boolean;
+  setIsBrewing: Function;
 }) => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
@@ -55,7 +55,7 @@ export const InstructionView = ({
   const stepsLeft = calculatedSteps.length - currentStep;
 
   const resetAll = () => {
-    setIsReady(false);
+    setIsBrewing(false);
     setIsRunning(false);
     setTime(0);
     setCurrentStep(1);
@@ -87,7 +87,7 @@ export const InstructionView = ({
     waterAfterCurrentStep,
   ]);
   return (
-    <div className={`${styles.slider} ${!isReady && styles.close}`}>
+    <div className={`${styles.slider} ${!isBrewing && styles.close}`}>
       <Navigation methodDetails={methodDetails} onClose={resetAll} />
 
       <div className={styles.flexDirectionSwichContainer}>

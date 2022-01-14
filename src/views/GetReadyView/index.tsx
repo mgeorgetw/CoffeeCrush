@@ -9,22 +9,22 @@ export const GetReadyView = ({
   method,
   setMethod,
   chosenMethodDetails,
-  beanWeight,
-  setBeanWeight,
+  groundCoffee,
+  setGroundCoffee,
   water,
   setWater,
 }: {
   method: string;
   setMethod: Function;
   chosenMethodDetails: TypeBrewMethod;
-  beanWeight: number;
-  setBeanWeight: Function;
+  groundCoffee: number;
+  setGroundCoffee: Function;
   water: number;
   setWater: Function;
 }) => {
   const handleRadioButtonChange = (item: TypeBrewMethod) => {
     setMethod(item.name);
-    setBeanWeight(item.defaultCoffeeInGram);
+    setGroundCoffee(item.defaultCoffeeInGram);
     setWater(item.defaultWaterInMl);
   };
   return (
@@ -40,14 +40,14 @@ export const GetReadyView = ({
         </Card>
         <DoseCard
           methodDetails={chosenMethodDetails!}
-          beanWeight={beanWeight}
+          groundCoffee={groundCoffee}
           water={water}
-          setBeanWeight={setBeanWeight}
+          setGroundCoffee={setGroundCoffee}
           setWater={setWater}
         />
         <PreparationCard
           methodDetails={chosenMethodDetails!}
-          coffeeNeeded={beanWeight}
+          coffeeNeeded={groundCoffee}
           waterNeeded={water}
         />
       </CardContainer>

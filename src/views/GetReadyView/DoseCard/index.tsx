@@ -8,15 +8,15 @@ import styles from "./DoseCard.module.css";
 
 export const DoseCard = ({
   methodDetails,
-  beanWeight,
+  groundCoffee,
   water,
-  setBeanWeight,
+  setGroundCoffee,
   setWater,
 }: {
   methodDetails: TypeBrewMethod;
-  beanWeight: number;
+  groundCoffee: number;
   water: number;
-  setBeanWeight: Function;
+  setGroundCoffee: Function;
   setWater: Function;
 }) => {
   const methodRef = useRef(methodDetails);
@@ -35,18 +35,18 @@ export const DoseCard = ({
           bean: value,
           ratio: ratio,
         });
-        setBeanWeight(value);
+        setGroundCoffee(value);
         setWater(result.waterVolume);
       } else {
         const result = getBeanWeightAndBrewWaterVolume({
           water: value,
           ratio: ratio,
         });
-        setBeanWeight(result.beanWeight);
+        setGroundCoffee(result.groundCoffee);
         setWater(value);
       }
     },
-    [ratio, setBeanWeight, setWater]
+    [ratio, setGroundCoffee, setWater]
   );
 
   useLayoutEffect(() => {
@@ -83,7 +83,7 @@ export const DoseCard = ({
                 type="number"
                 name="ground_coffee"
                 id="ground_coffee"
-                value={roundToInteger(beanWeight)}
+                value={roundToInteger(groundCoffee)}
                 onChange={handleChange}
               />{" "}
               g

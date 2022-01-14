@@ -4,40 +4,45 @@ import { InstructionView } from "./views/InstructionView";
 import brewMethods from "./data/BrewMethods.json";
 import "./App.css";
 import { gsap } from "gsap";
-import { start } from "repl";
 
 function App() {
-  const [method, setMethod] = useState("The Ultimate V60");
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const [method, setMethod] = useState<string>("The Ultimate V60");
+  const [isBrewing, setIsBrewing] = useState<boolean>(false);
   const chosenMethodDetails = useMemo(
     () => brewMethods.find((obj) => obj.name === method),
     [method]
   );
-  const [beanWeight, setBeanWeight] = useState(
+  const [groundCoffee, setGroundCoffee] = useState<number>(
     chosenMethodDetails!.defaultCoffeeInGram
   );
-  const [water, setWater] = useState(chosenMethodDetails!.defaultWaterInMl);
+  const [water, setWater] = useState<number>(
+    chosenMethodDetails!.defaultWaterInMl
+  );
 
+  // Initiate animation elements
   const animateRef = useRef<HTMLDivElement>(null);
-  const selector = gsap.utils.selector(animateRef);
   const timelineRef = useRef<GSAPTimeline>();
-
   const onEnter = ({ currentTarget }: { currentTarget: HTMLButtonElement }) => {
     gsap.to(currentTarget, { opacity: 1, border: "5px solid goldenrod" });
   };
-
   const onLeave = ({ currentTarget }: { currentTarget: HTMLButtonElement }) => {
     gsap.to(currentTarget, { opacity: 0.4, border: "none" });
   };
 
   useLayoutEffect(() => {
-    timelineRef.current = gsap.timeline().from(selector(".prime-button"), {
-      opacity: 1,
-      border: "5px solid goldenrod",
-      duration: 2,
-      ease: "power2.inOut",
-    });
-  }, [selector]);
+    const selector = gsap.utils.selector(animateRef);
+
+    const runButtonFadeAnimation = () =>
+      (timelineRef.current = gsap.timeline().from(selector(".prime-button"), {
+        delay: 1,
+        opacity: 1,
+        border: "5px solid goldenrod",
+        duration: 2,
+        ease: "power2.inOut",
+      }));
+
+    !isBrewing && runButtonFadeAnimation();
+  }, [isBrewing]);
 
   return (
     <div className="App" ref={animateRef}>
@@ -47,8 +52,8 @@ function App() {
         method={method}
         setMethod={setMethod}
         chosenMethodDetails={chosenMethodDetails!}
-        beanWeight={beanWeight}
-        setBeanWeight={setBeanWeight}
+        groundCoffee={groundCoffee}
+        setGroundCoffee={setGroundCoffee}
         water={water}
         setWater={setWater}
       />
@@ -56,16 +61,16 @@ function App() {
       <InstructionView
         methodDetails={chosenMethodDetails!}
         water={water}
-        isReady={isReady}
-        setIsReady={setIsReady}
+        isBrewing={isBrewing}
+        setIsBrewing={setIsBrewing}
       />
 
-      {!isReady && (
+      {!isBrewing && (
         <button
           className="prime-button"
           onPointerEnter={onEnter}
           onPointerLeave={onLeave}
-          onClick={() => setIsReady(true)}
+          onClick={() => setIsBrewing(true)}
         >
           Brew
         </button>
