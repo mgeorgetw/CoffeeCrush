@@ -7,20 +7,6 @@ import { ProgressDonutChartButton } from "./ProgressDonutChartButton";
 import { StepsList } from "./StepList";
 import { roundToInteger } from "../../utils/math";
 
-export const FractionIndicator = ({
-  fraction,
-  total,
-  unit,
-}: {
-  fraction: number;
-  total: number;
-  unit: string;
-}) => (
-  <div className={styles.largeDigit}>{`${roundToInteger(
-    fraction
-  )}/${roundToInteger(total)}${unit}`}</div>
-);
-
 export const InstructionView = ({
   methodDetails,
   water,
@@ -86,6 +72,7 @@ export const InstructionView = ({
     stepsLeft,
     waterAfterCurrentStep,
   ]);
+
   return (
     <div className={`${styles.slider} ${!isBrewing && styles.close}`}>
       <Navigation methodDetails={methodDetails} onClose={resetAll} />
@@ -118,3 +105,17 @@ export const InstructionView = ({
     </div>
   );
 };
+
+export const FractionIndicator = ({
+  fraction,
+  total,
+  unit,
+}: {
+  fraction: number;
+  total: number;
+  unit: string;
+}) => (
+  <div className={styles.largeDigit}>{`${roundToInteger(
+    fraction
+  )}/${roundToInteger(total)}${unit}`}</div>
+);
