@@ -23,15 +23,6 @@ const needleArc = arc()
 const dataValue = (d) => d.duration;
 const needleValue = (d) => d.step;
 
-const ClickableCircle = () => (
-  <circle
-    className={styles.button}
-    cx="0"
-    cy="0"
-    r={pieInnerMargin - needleSize - 3}
-  />
-);
-
 export const DonutProgressContainer = ({
   time,
   data,
@@ -44,10 +35,10 @@ export const DonutProgressContainer = ({
     [data]
   );
 
-  const needleData = [];
-  for (let i = 0; i <= totalDuration; i++) {
-    needleData.push({ step: 1 });
-  }
+  const needleData = useMemo(
+    () => Array(totalDuration).fill({ step: 1 }),
+    [totalDuration]
+  );
 
   const needlePie = useMemo(() => pie().sort(null).value(needleValue), []);
   const dataPie = useMemo(() => pie().sort(null).value(dataValue), []);
@@ -73,3 +64,12 @@ export const DonutProgressContainer = ({
     </svg>
   );
 };
+
+const ClickableCircle = () => (
+  <circle
+    className={styles.button}
+    cx="0"
+    cy="0"
+    r={pieInnerMargin - needleSize - 3}
+  />
+);
