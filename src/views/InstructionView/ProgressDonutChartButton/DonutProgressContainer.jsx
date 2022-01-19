@@ -30,15 +30,10 @@ export const DonutProgressContainer = ({
   currentStep,
   untilNextStep,
 }) => {
-  const totalDuration = useMemo(
-    () => data.reduce((pre, cur) => pre + cur.duration, 0),
-    [data]
-  );
-
-  const needleData = useMemo(
-    () => Array(totalDuration).fill({ step: 1 }),
-    [totalDuration]
-  );
+  const needleData = useMemo(() => {
+    const totalBrewTime = data.reduce((pre, cur) => pre + cur.duration, 0);
+    return Array(totalBrewTime).fill({ step: 1 });
+  }, [data]);
 
   const needlePie = useMemo(() => pie().sort(null).value(needleValue), []);
   const dataPie = useMemo(() => pie().sort(null).value(dataValue), []);
