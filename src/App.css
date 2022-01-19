@@ -7,6 +7,15 @@ body {
   color: darkcyan;
   max-width: 1024px;
   margin: 0 auto;
+  height: 100vh;
+  overflow: scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
 }
 
 .app-title {

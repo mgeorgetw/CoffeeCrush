@@ -40,20 +40,22 @@ export const InstructionView = ({
 
   const stepsLeft = calculatedSteps.length - currentStep;
 
-  const resetAll = () => {
+  function resetAll() {
     setIsBrewing(false);
     setIsRunning(false);
     setTime(0);
     setCurrentStep(1);
     setUntilNextStep(methodDetails.steps[0].duration);
     setAddedWater(0);
-  };
+  }
 
   useEffect(() => {
     if (!isRunning) return;
-
     let interval: number = 0;
-    interval = window.setInterval(() => {
+    interval = window.setInterval(() => updateChart(), 1000);
+    return () => window.clearInterval(interval);
+
+    function updateChart() {
       setTime((prevTime) => prevTime + 1);
       if (untilNextStep > 0) setUntilNextStep(untilNextStep - 1);
       if (stepsLeft > 0 && untilNextStep === 1) {
@@ -61,9 +63,7 @@ export const InstructionView = ({
         setUntilNextStep(calculatedSteps[currentStep].duration);
         waterAfterCurrentStep && setAddedWater(waterAfterCurrentStep);
       }
-    }, 1000);
-
-    return () => clearInterval(interval);
+    }
   }, [
     isRunning,
     untilNextStep,
