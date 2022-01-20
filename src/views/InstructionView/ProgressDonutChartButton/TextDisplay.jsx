@@ -11,13 +11,16 @@ export const TextDisplay = ({
 }) => {
   const textToShow = useMemo(() => {
     const currentData = data[currentStep - 1];
+
     if (!isRunning) return "Push & Start";
-    if (currentData.type === "pour") {
-      return `Pour until ${roundToInteger(currentData.fractionOfWater)}ml`;
-    } else if (currentData.type === "end") {
-      return `Push & Done`;
-    } else {
-      return `${currentData.type} ${untilNextStep}sec`;
+
+    switch (currentData.type) {
+      case "pour":
+        return `Pour until ${roundToInteger(currentData.fractionOfWater)}ml`;
+      case "end":
+        return `Push & Done`;
+      default:
+        return `${currentData.type} ${untilNextStep}sec`;
     }
   }, [data, currentStep, untilNextStep, isRunning]);
 
@@ -26,7 +29,7 @@ export const TextDisplay = ({
       className={styles.countDownTimer}
       textAnchor="middle"
       verticalAnchor="middle"
-      width={30}
+      width={50}
     >
       {textToShow}
     </Text>

@@ -26,6 +26,13 @@
 
 .bottomAndRight {
   overflow: auto;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bottomAndRight::-webkit-scrollbar {
+  display: none;
 }
 
 @media all and (min-width: 720px) {

@@ -51,6 +51,7 @@ export const InstructionView = ({
 
   useEffect(() => {
     if (!isRunning) return;
+
     let interval: number = 0;
     interval = window.setInterval(() => updateChart(), 1000);
     return () => window.clearInterval(interval);

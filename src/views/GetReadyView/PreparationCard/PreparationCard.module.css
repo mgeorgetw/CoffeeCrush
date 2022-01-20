@@ -14,3 +14,8 @@
   color: palegoldenrod;
   font-size: large;
 }
+
+.listItem > a {
+  color: inherit;
+  text-decoration: underline;
+}

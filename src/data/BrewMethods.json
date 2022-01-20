@@ -48,6 +48,7 @@
       { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   },
+
   {
     "name": "Tetsu Kasuya V60",
     "learn": "https://youtu.be/wmCW8xSWGZY",
@@ -104,6 +105,7 @@
       { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   },
+
   {
     "name": "French Press",
     "learn": "https://youtu.be/st571DYYTR8",
@@ -143,6 +145,7 @@
       { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
     ]
   },
+
   {
     "name": "Iced filter coffee",
     "learn": "https://youtu.be/PApBycDrPo0",

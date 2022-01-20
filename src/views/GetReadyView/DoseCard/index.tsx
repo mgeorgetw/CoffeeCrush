@@ -19,17 +19,17 @@ export const DoseCard = ({
   setGroundCoffee: Function;
   setWater: Function;
 }) => {
-  const methodRef = useRef(methodDetails);
-  const animateRef = useRef<HTMLDivElement>(null);
-  const selector = gsap.utils.selector(animateRef);
-  const timelineRef = useRef<GSAPTimeline>();
-
   const ratio = methodDetails.ratio;
   const grindSize = methodDetails.grindSize;
 
-  const handleChange = useCallback(
+  const methodRef = useRef(methodDetails);
+  const animateRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<GSAPTimeline>();
+
+  const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = Number(event.target.value);
+
       if (event.target.id === "ground_coffee") {
         const result = getBeanWeightAndBrewWaterVolume({
           bean: value,
@@ -50,7 +50,9 @@ export const DoseCard = ({
   );
 
   useLayoutEffect(() => {
-    if (methodDetails !== methodRef.current)
+    const selector = gsap.utils.selector(animateRef);
+
+    function runMethodChangeAnimation() {
       timelineRef.current = gsap
         .timeline()
         .to(selector(".toTilt"), {
@@ -62,8 +64,11 @@ export const DoseCard = ({
           duration: 1,
           ease: "back",
         });
+    }
+
+    methodDetails !== methodRef.current && runMethodChangeAnimation();
     methodRef.current = methodDetails;
-  }, [methodDetails, methodRef, selector]);
+  }, [methodDetails, methodRef]);
 
   return (
     <Card>
@@ -84,7 +89,7 @@ export const DoseCard = ({
                 name="ground_coffee"
                 id="ground_coffee"
                 value={roundToInteger(groundCoffee)}
-                onChange={handleChange}
+                onChange={handleInputChange}
               />{" "}
               g
             </div>
@@ -99,7 +104,7 @@ export const DoseCard = ({
                 name="water"
                 id="water"
                 value={roundToInteger(water)}
-                onChange={handleChange}
+                onChange={handleInputChange}
               />{" "}
               ml
             </div>

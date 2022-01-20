@@ -38,6 +38,7 @@ export const GetReadyView = ({
             )}
           </div>
         </Card>
+
         <DoseCard
           methodDetails={chosenMethodDetails!}
           groundCoffee={groundCoffee}
@@ -45,6 +46,7 @@ export const GetReadyView = ({
           setGroundCoffee={setGroundCoffee}
           setWater={setWater}
         />
+
         <PreparationCard
           methodDetails={chosenMethodDetails!}
           coffeeNeeded={groundCoffee}

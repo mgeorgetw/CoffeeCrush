@@ -20,10 +20,10 @@
   padding: 0.5rem;
 }
 
-a:link {
+.navigation > a:link {
   text-decoration: none;
 }
 
-a:visited {
+.navigation > a:visited {
   text-decoration: none;
 }
