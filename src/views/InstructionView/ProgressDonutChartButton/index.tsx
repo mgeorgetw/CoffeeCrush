@@ -23,24 +23,31 @@ export const ProgressDonutChartButton = ({
   isRunning: boolean;
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  // Initial audio element.
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   audioRef.current.autoplay = true;
 
+  function playButtonClickAudio() {
+    audioRef.current.src = buttonClickedAudio.default;
+  }
+
+  function playBellAudio() {
+    // Typescript requires '.default'
+    audioRef.current.src = bellAudio.default;
+  }
+
   useEffect(() => {
-    // Play alert sound while step changes
-    if (stepsLeft > 0 && untilNextStep === 1) {
-      // Typescript requires '.default'
-      audioRef.current.src = bellAudio.default;
-    }
-  }, [stepsLeft, audioRef, untilNextStep]);
+    const isStepsChanging: boolean = stepsLeft > 0 && untilNextStep === 1;
+    isStepsChanging && playBellAudio();
+  }, [stepsLeft, untilNextStep]);
+
   return (
     <div
       id="donutProgressChart"
       onClick={() => {
         isRunning ? setIsRunning(false) : setIsRunning(true);
-        // Audio needs to be initiated by user interaction.
-        audioRef.current.src = buttonClickedAudio.default;
+        /* On iOS, Audio needs to be initiated by user interaction.
+         * While initiated, we can change audio source and will autoplay. */
+        playButtonClickAudio();
       }}
     >
       <DonutProgressContainer
