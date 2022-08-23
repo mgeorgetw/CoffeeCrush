@@ -1,17 +1,15 @@
 {
   "files": {
     "main.css": "/CoffeeCrush/static/css/main.adf47395.css",
-    "main.js": "/CoffeeCrush/static/js/main.a3031644.js",
+    "main.js": "/CoffeeCrush/static/js/main.daef277b.js",
     "static/js/787.2a4ad0eb.chunk.js": "/CoffeeCrush/static/js/787.2a4ad0eb.chunk.js",
-    "static/media/bell.mp3": "/CoffeeCrush/static/media/bell.e775700bffccf327d428.mp3",
-    "static/media/start.mp3": "/CoffeeCrush/static/media/start.c5edceb4b16c233290c2.mp3",
     "index.html": "/CoffeeCrush/index.html",
     "main.adf47395.css.map": "/CoffeeCrush/static/css/main.adf47395.css.map",
-    "main.a3031644.js.map": "/CoffeeCrush/static/js/main.a3031644.js.map",
+    "main.daef277b.js.map": "/CoffeeCrush/static/js/main.daef277b.js.map",
     "787.2a4ad0eb.chunk.js.map": "/CoffeeCrush/static/js/787.2a4ad0eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.adf47395.css",
-    "static/js/main.a3031644.js"
+    "static/js/main.daef277b.js"
   ]
 }
