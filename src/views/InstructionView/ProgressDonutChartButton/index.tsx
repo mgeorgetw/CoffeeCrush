@@ -2,9 +2,8 @@ import { useEffect, useRef } from "react";
 import { Steps } from "../../../types/TypeBrewMethod";
 import { DonutProgressContainer } from "./DonutProgressContainer";
 
-// Typescript does not seem to support 'import' of audio files.
-const bellAudio = require("../../../assets/bell.mp3");
-const buttonClickedAudio = require("../../../assets/start.mp3");
+const bellAudio = "./assets/bell.mp3";
+const buttonClickedAudio = "./assets/start.mp3";
 
 export const ProgressDonutChartButton = ({
   time,
@@ -27,12 +26,11 @@ export const ProgressDonutChartButton = ({
   audioRef.current.autoplay = true;
 
   function playButtonClickAudio() {
-    audioRef.current.src = buttonClickedAudio.default;
+    audioRef.current.src = bellAudio;
   }
 
   function playBellAudio() {
-    // Typescript requires '.default'
-    audioRef.current.src = bellAudio.default;
+    audioRef.current.src = buttonClickedAudio;
   }
 
   useEffect(() => {
