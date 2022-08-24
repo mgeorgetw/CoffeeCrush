@@ -26,11 +26,11 @@ export const ProgressDonutChartButton = ({
   audioRef.current.autoplay = true;
 
   function playButtonClickAudio() {
-    audioRef.current.src = bellAudio;
+    audioRef.current.src = buttonClickedAudio;
   }
 
   function playBellAudio() {
-    audioRef.current.src = buttonClickedAudio;
+    audioRef.current.src = bellAudio;
   }
 
   useEffect(() => {
