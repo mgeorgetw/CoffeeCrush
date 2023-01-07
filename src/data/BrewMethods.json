@@ -50,6 +50,69 @@
   },
 
   {
+    "name": "1 Cup V60",
+    "learn": "https://youtu.be/1oB1oDrDkHM",
+    "grindSize": "Medium-Fine",
+    "defaultCoffeeInGram": 15,
+    "defaultWaterInMl": 250,
+    "waterTemperature": "100℃",
+    "ratio": 16.66,
+    "tools": [
+      "A Hario V60 coffee brewer.",
+      "V60 filter paper.",
+      "An eletronic scale."
+    ],
+    "steps": [
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 10,
+        "instruction": "Pour {0.2} ml of water and wait to bloom."
+      },
+      {
+        "type": "swirl",
+        "duration": 5,
+        "instruction": "Swirl the brewer until the grounds look well mixed."
+      },
+      { "type": "wait", "duration": 30, "instruction": "Wait 30 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.4,
+        "duration": 15,
+        "instruction": "Pour water until {0.4} ml."
+      },
+      { "type": "wait", "duration": 10, "instruction": "Wait 10 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.6,
+        "duration": 15,
+        "instruction": "Pour water until {0.6} ml."
+      },
+      { "type": "wait", "duration": 10, "instruction": "Wait 10 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.8,
+        "duration": 15,
+        "instruction": "Pour water until {0.8} ml."
+      },
+      { "type": "wait", "duration": 10, "instruction": "Wait 10 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 1,
+        "duration": 15,
+        "instruction": "Pour water until {1} ml."
+      },
+      { "type": "stir", "duration": 5, "instruction": "Stir for 5 seconds." },
+      {
+        "type": "wait",
+        "duration": 40,
+        "instruction": "Wait for the drawdown."
+      },
+      { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+    ]
+  },
+
+  {
     "name": "Tetsu Kasuya V60",
     "learn": "https://youtu.be/wmCW8xSWGZY",
     "grindSize": "Coarse",
