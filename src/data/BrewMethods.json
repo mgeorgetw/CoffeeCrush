@@ -170,6 +170,59 @@
   },
 
   {
+    "name": "Origami by Carlos Medina",
+    "learn": "https://origami-kai.com/en/blogs/special-feature/world-brewers-cup2023-carlos-medina",
+    "grindSize": "Medium",
+    "defaultCoffeeInGram": 15.5,
+    "defaultWaterInMl": 250,
+    "waterTemperature": "91℃",
+    "ratio": 16.13,
+    "tools": [
+      "An Origami coffee brewer.",
+      "V60 filter paper.",
+      "An eletronic scale."
+    ],
+    "steps": [
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 5,
+        "instruction": "Pour {0.2} ml of water and wait to bloom."
+      },
+      { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 5,
+        "instruction": "Pour water until {0.4} ml."
+      },
+      { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 5,
+        "instruction": "Pour water until {0.6} ml."
+      },
+      { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 5,
+        "instruction": "Pour water until {0.8} ml."
+      },
+      { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.2,
+        "duration": 5,
+        "instruction": "Pour water until {1} ml."
+      },
+      { "type": "wait", "duration": 40, "instruction": "Wait 40 seconds." },
+      { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+    ]
+  },
+
+  {
     "name": "French Press",
     "learn": "https://youtu.be/st571DYYTR8",
     "grindSize": "Medium",
