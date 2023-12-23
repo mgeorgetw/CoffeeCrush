@@ -192,28 +192,28 @@
       { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
       {
         "type": "pour",
-        "fractionOfWater": 0.2,
+        "fractionOfWater": 0.4,
         "duration": 5,
         "instruction": "Pour water until {0.4} ml."
       },
       { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
       {
         "type": "pour",
-        "fractionOfWater": 0.2,
+        "fractionOfWater": 0.6,
         "duration": 5,
         "instruction": "Pour water until {0.6} ml."
       },
       { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
       {
         "type": "pour",
-        "fractionOfWater": 0.2,
+        "fractionOfWater": 0.8,
         "duration": 5,
         "instruction": "Pour water until {0.8} ml."
       },
       { "type": "wait", "duration": 25, "instruction": "Wait 25 seconds." },
       {
         "type": "pour",
-        "fractionOfWater": 0.2,
+        "fractionOfWater": 1,
         "duration": 5,
         "instruction": "Pour water until {1} ml."
       },
