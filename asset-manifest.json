@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CoffeeCrush/static/css/main.adf47395.css",
-    "main.js": "/CoffeeCrush/static/js/main.c4948612.js",
+    "main.js": "/CoffeeCrush/static/js/main.d77a3248.js",
     "static/js/787.2a4ad0eb.chunk.js": "/CoffeeCrush/static/js/787.2a4ad0eb.chunk.js",
     "index.html": "/CoffeeCrush/index.html",
     "main.adf47395.css.map": "/CoffeeCrush/static/css/main.adf47395.css.map",
-    "main.c4948612.js.map": "/CoffeeCrush/static/js/main.c4948612.js.map",
+    "main.d77a3248.js.map": "/CoffeeCrush/static/js/main.d77a3248.js.map",
     "787.2a4ad0eb.chunk.js.map": "/CoffeeCrush/static/js/787.2a4ad0eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.adf47395.css",
-    "static/js/main.c4948612.js"
+    "static/js/main.d77a3248.js"
   ]
 }
