@@ -223,6 +223,54 @@
   },
 
   {
+    "name": "Switch Method x Kasuya",
+    "learn": "https://www.youtube.com/watch?v=gC8K40kZ_6E",
+    "grindSize": "Medium Fine",
+    "defaultCoffeeInGram": 20,
+    "defaultWaterInMl": 280,
+    "waterTemperature": "First 90℃, then 70℃",
+    "ratio": 14,
+    "tools": [
+      "A Hario Switch coffee brewer.",
+      "V60 filter paper.",
+      "An eletronic scale.",
+      "A teaspoon.",
+      "A cup of cold water."
+    ],
+    "steps": [
+      {
+        "type": "pour",
+        "fractionOfWater": 0.215,
+        "duration": 30,
+        "instruction": "Pour {0.215} ml of water."
+      },
+      {
+        "type": "pour",
+        "fractionOfWater": 0.43,
+        "duration": 30,
+        "instruction": "Pour {0.43} ml of water."
+      },
+      {
+        "type": "wait",
+        "duration": 15,
+        "instruction": "Add cold water to the pouring kettle until 70℃"
+      },
+      {
+        "type": "pour",
+        "fractionOfWater": 1,
+        "duration": 30,
+        "instruction": "Switch off the brewer. Pour water until {1} ml."
+      },
+      {
+        "type": "wait",
+        "duration": 75,
+        "instruction": "Switch on the brewer and wait for the drawdown."
+      },
+      { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+    ]
+  },
+
+  {
     "name": "French Press",
     "learn": "https://youtu.be/st571DYYTR8",
     "grindSize": "Medium",
