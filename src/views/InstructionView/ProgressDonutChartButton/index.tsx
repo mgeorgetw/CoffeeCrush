@@ -2,9 +2,6 @@ import { useEffect, useRef } from "react";
 import { Steps } from "../../../types/TypeBrewMethod";
 import { DonutProgressContainer } from "./DonutProgressContainer";
 
-const bellAudio = "./assets/bell.mp3";
-const buttonClickedAudio = "./assets/start.mp3";
-
 export const ProgressDonutChartButton = ({
   time,
   steps,
@@ -23,29 +20,29 @@ export const ProgressDonutChartButton = ({
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const audioRef = useRef<HTMLAudioElement>(new Audio());
-  audioRef.current.autoplay = true;
 
-  function playButtonClickAudio() {
-    audioRef.current.src = buttonClickedAudio;
-  }
+  const buttonClickedAudio = "/CoffeeCrush/assets/start.mp3";
+  const bellAudio = "/CoffeeCrush/assets/bell.mp3";
 
-  function playBellAudio() {
-    audioRef.current.src = bellAudio;
+  function playAudio(src: string) {
+    const audio = audioRef.current;
+    audio.src = src;
+    audio.play().catch((err) => console.error("Audio play failed:", err));
   }
 
   useEffect(() => {
     const isStepsChanging: boolean = stepsLeft > 0 && untilNextStep === 1;
-    isStepsChanging && playBellAudio();
+    if (isStepsChanging) {
+      playAudio(bellAudio);
+    }
   }, [stepsLeft, untilNextStep]);
 
   return (
     <div
       id="donutProgressChart"
       onClick={() => {
-        isRunning ? setIsRunning(false) : setIsRunning(true);
-        /* On iOS, Audio needs to be initiated by user interaction.
-         * While initiated, we can change audio source and will autoplay. */
-        playButtonClickAudio();
+        setIsRunning(!isRunning);
+        playAudio(buttonClickedAudio);
       }}
     >
       <DonutProgressContainer

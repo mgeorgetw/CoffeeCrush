@@ -22,7 +22,7 @@ export const InstructionView = ({
   const [time, setTime] = useState<number>(0);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [untilNextStep, setUntilNextStep] = useState<number>(
-    methodDetails.steps[0].duration
+    methodDetails.steps[0].duration,
   );
   const [addedWater, setAddedWater] = useState<number>(0);
 
@@ -31,7 +31,7 @@ export const InstructionView = ({
     fractionOfWater: step.fractionOfWater! * water,
     instruction: step.instruction.replace(
       /\{(\d\.?\d{0,})\}/g,
-      ($0: string, $1: string) => roundToInteger(+$1 * water)
+      ($0: string, $1: string) => roundToInteger(+$1 * water),
     ),
   }));
 
@@ -73,6 +73,13 @@ export const InstructionView = ({
     stepsLeft,
     waterAfterCurrentStep,
   ]);
+
+  useEffect(() => {
+    if (methodDetails.steps?.length > 0) {
+      setUntilNextStep(methodDetails.steps[0].duration);
+      setCurrentStep(1);
+    }
+  }, [methodDetails]);
 
   return (
     <div className={`${styles.slider} ${!isBrewing && styles.close}`}>
@@ -117,6 +124,6 @@ export const FractionIndicator = ({
   unit: string;
 }) => (
   <div className={styles.largeDigit}>{`${roundToInteger(
-    fraction
+    fraction,
   )}/${roundToInteger(total)}${unit}`}</div>
 );
