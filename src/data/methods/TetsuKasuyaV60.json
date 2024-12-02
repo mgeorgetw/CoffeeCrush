@@ -1,0 +1,56 @@
+{
+  "name": "4:6 Method",
+  "learn": "https://youtu.be/wmCW8xSWGZY",
+  "grindSize": "Coarse",
+  "defaultCoffeeInGram": 20,
+  "defaultWaterInMl": 300,
+  "waterTemperature": "100℃",
+  "ratio": 15,
+  "tools": [
+    "A Hario V60 coffee brewer.",
+    "V60 filter paper.",
+    "An eletronic scale."
+  ],
+  "steps": [
+    {
+      "type": "pour",
+      "fractionOfWater": 0.2,
+      "duration": 10,
+      "instruction": "Pour {0.2} ml of water. (Adjustable: {0.17} ml for more sweetness; {0.23} ml offers more acidity)."
+    },
+    { "type": "wait", "duration": 35, "instruction": "Wait 35 seconds." },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.4,
+      "duration": 10,
+      "instruction": "Pour water until {0.4} ml."
+    },
+    { "type": "wait", "duration": 35, "instruction": "Wait 35 seconds." },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.6,
+      "duration": 10,
+      "instruction": "Pour until {0.6} ml."
+    },
+    { "type": "wait", "duration": 35, "instruction": "Wait 35 seconds." },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.8,
+      "duration": 10,
+      "instruction": "Pour until {0.8} ml."
+    },
+    { "type": "wait", "duration": 35, "instruction": "Wait 35 seconds." },
+    {
+      "type": "pour",
+      "fractionOfWater": 1,
+      "duration": 10,
+      "instruction": "Finish the pour at {1} ml."
+    },
+    {
+      "type": "wait",
+      "duration": 25,
+      "instruction": "Wait for the drawdown."
+    },
+    { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+  ]
+}

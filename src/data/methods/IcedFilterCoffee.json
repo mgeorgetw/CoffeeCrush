@@ -1,0 +1,57 @@
+{
+  "name": "Iced filter coffee",
+  "learn": "https://youtu.be/PApBycDrPo0",
+  "grindSize": "Fine",
+  "defaultCoffeeInGram": 35,
+  "defaultWaterInMl": 500,
+  "waterTemperature": "Ice + 100℃",
+  "ratio": 14.3,
+  "tools": [
+    "A Hario V60 coffee brewer.",
+    "V60 filter paper.",
+    "An eletronic scale.",
+    "A teaspoon."
+  ],
+  "steps": [
+    {
+      "type": "pour",
+      "fractionOfWater": 0.4,
+      "duration": 10,
+      "instruction": "Start with {0.4} g of ice in the decanter."
+    },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.52,
+      "duration": 10,
+      "instruction": "Pour water until {0.52} ml."
+    },
+    {
+      "type": "swirl",
+      "duration": 10,
+      "instruction": "Swirl the brewer until the grounds look well mixed."
+    },
+    {
+      "type": "wait",
+      "duration": 30,
+      "instruction": "Wait 30 seconds and wait to bloom."
+    },
+    { "type": "stir", "duration": 5, "instruction": "Stir for 5 seconds." },
+    {
+      "type": "pour",
+      "fractionOfWater": 1,
+      "duration": 150,
+      "instruction": "Slowly pour water until {1} ml."
+    },
+    {
+      "type": "wait",
+      "duration": 20,
+      "instruction": "Wait for the drawdown."
+    },
+    {
+      "type": "swirl",
+      "duration": 15,
+      "instruction": "Swirl the brewer until ice cubes are fully melted."
+    },
+    { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+  ]
+}

@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@types/webpack-env": "^1.18.5",
     "gh-pages": "^4.0.0",
     "react-error-overlay": "6.0.11"
   },

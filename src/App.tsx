@@ -1,4 +1,4 @@
-import {
+import React, {
   useState,
   useMemo,
   useEffect,
@@ -8,93 +8,55 @@ import {
 } from "react";
 import { GetReadyView } from "./views/GetReadyView";
 import { InstructionView } from "./views/InstructionView";
-import brewMethods from "./data/BrewMethods.json";
+import { TypeBrewMethod } from "./types/TypeBrewMethod";
 import "./App.css";
 import { gsap } from "gsap";
 
-function App() {
-  const [method, setMethod] = useState("The Ultimate V60");
-  const chosenMethodDetails = useMemo(
-    () => brewMethods.find((obj) => obj.name === method),
-    [method]
-  );
-  const [groundCoffee, setGroundCoffee] = useState(
-    chosenMethodDetails!.defaultCoffeeInGram
-  );
-  const [water, setWater] = useState(chosenMethodDetails!.defaultWaterInMl);
-  const [isBrewing, setIsBrewing] = useState(false);
+const useBrewMethods = (preferredOrder: string[]) => {
+  const [methods, setMethods] = useState<TypeBrewMethod[]>([]);
 
-  const animateRef = useRef<HTMLDivElement>(null!);
-  const selector = gsap.utils.selector(animateRef);
+  useEffect(() => {
+    const context = require.context("./data/methods", false, /\.json$/);
+    const importedMethods = context
+      .keys()
+      .map((file) => context<TypeBrewMethod>(file));
 
-  const onScrollToBottom = useCallback(() => {
-    if (!animateRef.current) throw Error("animateRef is not assigned");
-    reachedAppBottom() && runButtonFadeInAnimation();
+    const sortedMethods = importedMethods.sort((a, b) => {
+      const indexA = preferredOrder.indexOf(a.name);
+      const indexB = preferredOrder.indexOf(b.name);
 
-    function reachedAppBottom() {
-      const { scrollTop, scrollHeight, clientHeight } = animateRef.current;
-      return scrollTop + clientHeight === scrollHeight;
-    }
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
 
-    function runButtonFadeInAnimation() {
-      gsap.to(selector(".prime-button"), {
-        opacity: 1,
-        border: "5px solid goldenrod",
-        duration: 0.5,
-        ease: "power2.inout",
-      });
-    }
-  }, [selector]);
+      return indexA - indexB;
+    });
 
-  return (
-    <div className="App" ref={animateRef} onScroll={onScrollToBottom}>
-      <h1 className="app-title">Coffee Crush</h1>
+    setMethods(sortedMethods);
+  }, [preferredOrder]); // Safe if preferredOrder is stable
 
-      <GetReadyView
-        method={method}
-        setMethod={setMethod}
-        chosenMethodDetails={chosenMethodDetails!}
-        groundCoffee={groundCoffee}
-        setGroundCoffee={setGroundCoffee}
-        water={water}
-        setWater={setWater}
-      />
-
-      <InstructionView
-        methodDetails={chosenMethodDetails!}
-        water={water}
-        isBrewing={isBrewing}
-        setIsBrewing={setIsBrewing}
-      />
-
-      {!isBrewing && (
-        <BrewButton isBrewing={isBrewing} setIsBrewing={setIsBrewing} />
-      )}
-    </div>
-  );
-}
+  return methods;
+};
 
 const BrewButton = ({
   isBrewing,
-  setIsBrewing,
+  onStartBrewing,
 }: {
   isBrewing: boolean;
-  setIsBrewing: Function;
+  onStartBrewing: () => void;
 }) => {
-  const animatedButtonRef = useRef<HTMLDivElement>(null);
-  const selector = gsap.utils.selector(animatedButtonRef);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const selector = gsap.utils.selector(buttonRef);
 
-  const animationOnEnter = (e: PointerEvent<HTMLButtonElement>) => {
+  const fadeIn = (e: PointerEvent<HTMLButtonElement>) => {
     gsap.to(e.target, { opacity: 1, border: "5px solid goldenrod" });
   };
-  const animationOnLeave = (e: PointerEvent<HTMLButtonElement>) => {
+
+  const fadeOut = (e: PointerEvent<HTMLButtonElement>) => {
     gsap.to(e.target, { opacity: 0.4, border: "none" });
   };
 
   useEffect(() => {
-    !isBrewing && runButtonFadeOutAnimation();
-
-    function runButtonFadeOutAnimation() {
+    if (!isBrewing) {
       gsap.from(selector(".prime-button"), {
         delay: 1,
         opacity: 1,
@@ -106,15 +68,86 @@ const BrewButton = ({
   }, [isBrewing, selector]);
 
   return (
-    <div ref={animatedButtonRef}>
+    <div ref={buttonRef}>
       <button
         className="prime-button"
-        onPointerEnter={animationOnEnter}
-        onPointerLeave={animationOnLeave}
-        onClick={() => setIsBrewing(true)}
+        onPointerEnter={fadeIn}
+        onPointerLeave={fadeOut}
+        onClick={onStartBrewing}
       >
         Brew
       </button>
+    </div>
+  );
+};
+
+const App = () => {
+  const preferredOrder = useMemo(
+    () => ["The Ultimate V60", "1 Cup V60", "Hario Switch", "Origami"],
+    [],
+  );
+  const methods = useBrewMethods(preferredOrder);
+
+  const [selectedMethod, setSelectedMethod] = useState("The Ultimate V60");
+  const [waterAmount, setWaterAmount] = useState(0);
+  const [isBrewing, setIsBrewing] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const selectedMethodDetails = useMemo(
+    () => methods.find((method) => method.name === selectedMethod),
+    [methods, selectedMethod],
+  );
+
+  useEffect(() => {
+    if (selectedMethodDetails) {
+      setWaterAmount(selectedMethodDetails.defaultWaterInMl);
+    }
+  }, [selectedMethodDetails]);
+
+  const scrollToBottomHandler = useCallback(() => {
+    if (!containerRef.current) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+    if (scrollTop + clientHeight === scrollHeight) {
+      gsap.to(".prime-button", {
+        opacity: 1,
+        border: "5px solid goldenrod",
+        duration: 0.5,
+        ease: "power2.inout",
+      });
+    }
+  }, []);
+
+  if (!selectedMethodDetails) {
+    return <div>Loading methods...</div>;
+  }
+
+  return (
+    <div className="App" ref={containerRef} onScroll={scrollToBottomHandler}>
+      <h1 className="app-title">Coffee Crush</h1>
+
+      <GetReadyView
+        methods={methods}
+        selectedMethod={selectedMethod}
+        onSelectMethod={setSelectedMethod}
+        methodDetails={selectedMethodDetails}
+        waterAmount={waterAmount}
+        setWater={setWaterAmount}
+      />
+
+      <InstructionView
+        methodDetails={selectedMethodDetails}
+        waterAmount={waterAmount}
+        isBrewing={isBrewing}
+        onSetBrewing={setIsBrewing}
+      />
+
+      {!isBrewing && (
+        <BrewButton
+          isBrewing={isBrewing}
+          onStartBrewing={() => setIsBrewing(true)}
+        />
+      )}
     </div>
   );
 };

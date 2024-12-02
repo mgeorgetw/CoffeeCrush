@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { TypeBrewMethod } from "../../types/TypeBrewMethod";
 import styles from "./InstructionView.module.css";
 import { Navigation } from "./Navigation";
@@ -9,14 +9,14 @@ import { roundToInteger } from "../../utils/math";
 
 export const InstructionView = ({
   methodDetails,
-  water,
+  waterAmount,
   isBrewing,
-  setIsBrewing,
+  onSetBrewing,
 }: {
   methodDetails: TypeBrewMethod;
-  water: number;
+  waterAmount: number;
   isBrewing: boolean;
-  setIsBrewing: Function;
+  onSetBrewing: Function;
 }) => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
@@ -28,10 +28,10 @@ export const InstructionView = ({
 
   const calculatedSteps = methodDetails.steps.map((step) => ({
     ...step,
-    fractionOfWater: step.fractionOfWater! * water,
+    fractionOfWater: step.fractionOfWater! * waterAmount,
     instruction: step.instruction.replace(
       /\{(\d\.?\d{0,})\}/g,
-      ($0: string, $1: string) => roundToInteger(+$1 * water),
+      ($0: string, $1: string) => roundToInteger(+$1 * waterAmount),
     ),
   }));
 
@@ -41,7 +41,7 @@ export const InstructionView = ({
   const stepsLeft = calculatedSteps.length - currentStep;
 
   function resetAll() {
-    setIsBrewing(false);
+    onSetBrewing(false);
     setIsRunning(false);
     setTime(0);
     setCurrentStep(1);
@@ -101,7 +101,7 @@ export const InstructionView = ({
         </div>
 
         <div className={styles.bottomAndRight}>
-          <FractionIndicator fraction={addedWater} total={water} unit="ml" />
+          <FractionIndicator fraction={addedWater} total={waterAmount} unit="ml" />
 
           <StepsList
             isRunning={isRunning}

@@ -1,0 +1,39 @@
+{
+  "name": "French Press",
+  "learn": "https://youtu.be/st571DYYTR8",
+  "grindSize": "Medium",
+  "defaultCoffeeInGram": 30,
+  "defaultWaterInMl": 500,
+  "waterTemperature": "100℃",
+  "ratio": 16.66,
+  "tools": [
+    "A french press brewer.",
+    "An eletronic scale.",
+    "Two table spoons."
+  ],
+  "steps": [
+    {
+      "type": "pour",
+      "fractionOfWater": 1,
+      "duration": 10,
+      "instruction": "Pour {1} ml of water."
+    },
+    { "type": "wait", "duration": 240, "instruction": "Wait 4 minutes." },
+    {
+      "type": "stir",
+      "duration": 20,
+      "instruction": "Use spoons to stir the crust and discard what remains floating."
+    },
+    {
+      "type": "wait",
+      "duration": 300,
+      "instruction": "Wait at least 5 minutes."
+    },
+    {
+      "type": "press",
+      "duration": 10,
+      "instruction": "Put the plunger in, not all the way, but just until it's sitting on the surface of coffee."
+    },
+    { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
+  ]
+}
