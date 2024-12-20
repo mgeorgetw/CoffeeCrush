@@ -19,19 +19,37 @@ export const ProgressDonutChartButton = ({
   isRunning: boolean;
   setIsRunning: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const audioRef = useRef<HTMLAudioElement>(new Audio());
+  const audioRefs = useRef({
+    buttonClickedAudio: new Audio(),
+    bellAudio: new Audio(),
+  });
 
-  const buttonClickedAudio = "/CoffeeCrush/assets/start.mp3";
-  const bellAudio = "/CoffeeCrush/assets/bell.mp3";
+  const audioSources = {
+    buttonClickedAudio: "/CoffeeCrush/assets/start",
+    bellAudio: "/CoffeeCrush/assets/bell",
+  };
 
-  function playAudio(src: string) {
-    const audio = audioRef.current;
-    audio.src = src;
-    audio.play().catch((err) => console.error("Audio play failed:", err));
+  function playAudio(audioRef: HTMLAudioElement) {
+    audioRef.play().catch((err) => console.error("Audio play failed:", err));
   }
 
   useEffect(() => {
+    // Preload audio files
+    Object.entries(audioRefs.current).forEach(([key, audioRef]) => {
+      const baseSrc = audioSources[key as keyof typeof audioSources];
+      audioRef.innerHTML = `
+        <source src="${baseSrc}.mp3" type="audio/mpeg">
+        <source src="${baseSrc}.ogg" type="audio/ogg">
+      `;
+      audioRef.preload = "auto";
+      audioRef.load();
+    });
+  }, []);
+
+  useEffect(() => {
+    const { bellAudio } = audioRefs.current;
     const isStepsChanging: boolean = stepsLeft > 0 && untilNextStep === 1;
+
     if (isStepsChanging) {
       playAudio(bellAudio);
     }
@@ -41,10 +59,20 @@ export const ProgressDonutChartButton = ({
     <div
       id="donutProgressChart"
       onClick={() => {
+        const { buttonClickedAudio } = audioRefs.current;
         setIsRunning(!isRunning);
         playAudio(buttonClickedAudio);
       }}
     >
+      {/* Audio elements are preloaded */}
+      {Object.keys(audioSources).map((key) => (
+        <audio
+          key={key}
+          ref={(el) => {
+            if (el) audioRefs.current[key as keyof typeof audioRefs.current] = el;
+          }}
+        ></audio>
+      ))}
       <DonutProgressContainer
         time={time}
         data={steps}
@@ -55,3 +83,4 @@ export const ProgressDonutChartButton = ({
     </div>
   );
 };
+
