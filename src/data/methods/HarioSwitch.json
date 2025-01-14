@@ -75,8 +75,13 @@
     },
     {
       "type": "open switch",
-      "duration": 42,
-      "instruction": "Switch on the brewer and wait for the drawdown."
+      "duration": 5,
+      "instruction": "Open the Switch."
+    },
+    {
+      "type": "wait",
+      "duration": 37,
+      "instruction": "Wait for the drawdown."
     },
     { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
   ]

@@ -18,10 +18,10 @@ export const DonutChart = ({ pieData, pieArc, pie }) =>
         fillColor = "darkgoldenrod";
         break;
       case "close switch":
-        fillColor = "midnightblue";
+        fillColor = "gray";
         break;
       case "open switch":
-        fillColor = "darkgoldenrod";
+        fillColor = "goldenrod";
         break;
       default:
         fillColor = "darkcyan";
