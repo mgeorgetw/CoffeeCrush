@@ -17,6 +17,12 @@ export const DonutChart = ({ pieData, pieArc, pie }) =>
       case "stir":
         fillColor = "darkgoldenrod";
         break;
+      case "close switch":
+        fillColor = "midnightblue";
+        break;
+      case "open switch":
+        fillColor = "darkgoldenrod";
+        break;
       default:
         fillColor = "darkcyan";
     }

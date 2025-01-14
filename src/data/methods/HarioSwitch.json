@@ -1,11 +1,11 @@
 {
   "name": "Hario Switch",
-  "learn": "https://www.youtube.com/watch?v=gC8K40kZ_6E",
+  "learn": "https://www.youtube.com/watch?v=4FeUp_zNiiY",
   "grindSize": "Medium Fine",
   "defaultCoffeeInGram": 20,
-  "defaultWaterInMl": 280,
-  "waterTemperature": "First 90℃, then 70℃",
-  "ratio": 14,
+  "defaultWaterInMl": 300,
+  "waterTemperature": "First 90℃, then 80℃",
+  "ratio": 15,
   "tools": [
     "A Hario Switch coffee brewer.",
     "V60 filter paper.",
@@ -15,31 +15,67 @@
   ],
   "steps": [
     {
-      "type": "pour",
-      "fractionOfWater": 0.215,
-      "duration": 30,
-      "instruction": "Pour {0.215} ml of water."
+      "type": "close switch",
+      "duration": 5,
+      "instruction": "Start with the Switch brewer closed."
     },
     {
       "type": "pour",
-      "fractionOfWater": 0.43,
-      "duration": 30,
-      "instruction": "Pour {0.43} ml of water."
+      "fractionOfWater": 0.15,
+      "duration": 15,
+      "instruction": "Pour water until {0.15} ml."
     },
     {
       "type": "wait",
-      "duration": 15,
-      "instruction": "Add cold water to the pouring kettle until 70℃"
+      "duration": 20,
+      "instruction": "Wait for the coffee to bloom."
+    },
+    {
+      "type": "open switch",
+      "duration": 3,
+      "instruction": "Open the Switch."
+    },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.4,
+      "duration": 7,
+      "instruction": "Pour water until {0.4} ml."
+    },
+    {
+      "type": "wait",
+      "duration": 40,
+      "instruction": "Wait for the coffee to bloom."
+    },
+    {
+      "type": "pour",
+      "fractionOfWater": 0.666,
+      "duration": 10,
+      "instruction": "Pour water until {0.666} ml."
+    },
+    {
+      "type": "wait",
+      "duration": 30,
+      "instruction": "Add cold water to the pouring kettle until 80℃"
+    },
+    {
+      "type": "close switch",
+      "duration": 3,
+      "instruction": "Open the Switch."
     },
     {
       "type": "pour",
       "fractionOfWater": 1,
-      "duration": 30,
-      "instruction": "Switch off the brewer. Pour water until {1} ml."
+      "duration": 10,
+      "instruction": "Pour water until {1} ml."
     },
     {
       "type": "wait",
-      "duration": 75,
+      "duration": 25,
+      "instruction": "Wait for the coffe to brew."
+    },
+    {
+      "type": "open switch",
+      "duration": 42,
       "instruction": "Switch on the brewer and wait for the drawdown."
     },
     { "type": "end", "duration": 0, "instruction": "Enjoy your coffee!" }
