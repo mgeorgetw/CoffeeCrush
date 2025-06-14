@@ -1,6 +1,7 @@
 {
-  "short_name": "Coffee Crush",
-  "name": "Coffee Crush: Timer for Coffee Brewers",
+  "short_name": "CoffeeCrush",
+  "name": "CoffeeCrush",
+  "description": "A Timer for Coffee Brewers",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +11,22 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable",
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable",
     }
   ],
-  "start_url": ".",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/",
+  "categories": ["productivity", "utilities"],
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#facc66",
+  "background_color": "#364E4F",
+  "prefer_related_applications": false,
 }
