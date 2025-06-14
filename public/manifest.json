@@ -27,6 +27,6 @@
   "categories": ["productivity", "utilities"],
   "display": "standalone",
   "theme_color": "#facc66",
-  "background_color": "#364E4F",
+  "background_color": "#3a3a3c",
   "prefer_related_applications": false,
 }
