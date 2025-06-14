@@ -60,7 +60,7 @@
     {
       "type": "close switch",
       "duration": 3,
-      "instruction": "Open the Switch."
+      "instruction": "Close the Switch."
     },
     {
       "type": "pour",
